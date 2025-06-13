@@ -1,0 +1,19 @@
+.Nav-content {
+
+    color: var(--gray-color);
+
+}
+
+.nav-block {
+    padding: 37px 40px 38px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.Search-button {
+    border: solid #494949 1px;
+    background: none;
+    padding: 10px 10px;
+}

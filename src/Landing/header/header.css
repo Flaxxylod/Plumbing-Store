@@ -1,0 +1,85 @@
+.Header-content {
+    background: url(./../../assets//Common/navigation/Background.png) no-repeat;
+    background-size: cover;
+}
+
+
+
+.header__common__block {
+
+    display: flex;
+    column-gap: 130px;
+}
+
+.header__left__block {
+    margin-top: 83px;
+    max-width: 592px;
+}
+
+.combobox__block {
+    color: var(--gray-color);
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    margin-bottom: 128px;
+}
+
+
+
+.combobox__element {
+    position: relative;
+    margin-bottom: 24px;
+    font-size: 20px;
+
+}
+
+.combobox__element::before {
+    margin-right: 15px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 5px;
+    height: 10px;
+    content: "";
+    background-image: url(./../../assets/Common/navigation/icon/Arrow.svg);
+}
+
+.combobox__element::after {
+    margin: 24px 0;
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 24px;
+    width: 375px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(75, 75, 75, 1), rgba(38, 38, 37, 0));
+}
+
+.header__slider ul {
+    display: flex;
+    column-gap: 10px;
+}
+
+.header__slider ul li::before {
+    display: inline-block;
+    content: "";
+    width: 31px;
+    height: 2px;
+    background: rgba(87, 87, 87, 1)
+}
+
+.header__slider ul li.active::before {
+    display: inline-block;
+    content: "";
+    width: 31px;
+    height: 2px;
+    background: linear-gradient(to right, rgba(245, 112, 44, 1) 50%, rgba(87, 87, 87, 1) 50%);
+}
+
+.header__right__block {
+    display: flex;
+    margin-top: 33px;
+    height: 656px;
+}

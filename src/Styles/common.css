@@ -1,0 +1,29 @@
+.wrap{
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.container{
+    padding: 0 15px;
+    margin: 0 auto;
+    max-width: 1185px;
+}
+
+:root{
+    --white-color: #FFFFFF;
+    --gray-color: #939393;
+    --black-color: #151716;
+    --orange-color: #FE5B00;
+}
+
+*{
+    font-size: 18px;
+    font-family: "PT Sans";
+    font-weight: 400;
+}
+
+h1{
+    font-family: "Orenburg";
+    font-size: 60px;
+    line-height: 64px;
+}
