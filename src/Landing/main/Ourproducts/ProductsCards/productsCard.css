@@ -1,0 +1,39 @@
+.ProductsCard__content{
+    display: flex;
+    column-gap: 14px;
+}
+
+.ProductsCard__card{
+    transform: 0.4s;
+    margin-top: 28px;
+    background-repeat: no-repeat;
+    background-size:cover;
+    width: 292px;
+    height: 350px;
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: flex-end;
+    
+}
+
+.ProductsCard__card:hover{
+    transition: 0.3s;
+    filter: brightness(120%);
+}
+
+.ProductsCard__card__text{
+    position: relative;
+    padding: 0 0 24px 24px;
+}
+
+.ProductsCard__card__text::before{
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 24px;
+    height: 1px;
+    width: 220px;
+    background: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+}

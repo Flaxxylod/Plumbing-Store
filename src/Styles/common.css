@@ -27,3 +27,25 @@ h1{
     font-size: 60px;
     line-height: 64px;
 }
+
+h2{
+    color:  var(--black-color);
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: -0.5px;
+}
+
+strong {
+    color: var(--black-color);
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Orenburg";
+}
+
+strong.white{
+    color: var(--white-color);
+    font-weight: bold;
+    font-size: 20px;
+    font-family: "Orenburg";
+}
+
