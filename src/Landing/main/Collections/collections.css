@@ -1,0 +1,78 @@
+.collections__content {
+    background: url(./../../../assets/Landing/main/Collections/Rectangle.png) no-repeat,
+        url(./../../../assets/Landing/main/Collections/Group11.png) no-repeat;
+    
+}
+
+.collections__common__block {
+    display: flex;
+    column-gap: 43px;
+}
+
+.text__block__left {
+    line-height: 32px;
+    margin-top: 20px;
+    max-width: 486px;
+    color: var(--white-gray-color);
+    font-size: 18px;
+}
+
+.collections__left__block {
+
+    padding: 67px 107px 0 27px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.allcollection__block {
+    margin-top: 330px;
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.allcollection__block::before {
+    position: absolute;
+    left: 0;
+
+    bottom: 56px;
+    content: "";
+    background: linear-gradient(90deg, rgba(75, 75, 75, 1), rgba(38, 38, 37, 0));
+    height: 1px;
+    width: 375px;
+}
+
+.collection__ref {
+    color: var(--white-gray-color);
+    font-size: 16px;
+}
+
+.collection__ref::before {
+    margin-right: 15px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 5px;
+    height: 10px;
+    content: "";
+    background-image: url(./../../../assets/Common/navigation/icon/Arrow.svg);
+}
+
+.collections__right__block {
+    display: flex;
+    flex-direction: column;
+    padding-top: 76px;
+    align-items: baseline;
+}
+
+.collections__price__block{
+    border-radius: 2px;
+    background-color: #FF7028;
+    padding: 14px 16px 12px 15px;
+}
+
+.collections__price__block strong{
+    font-size: 24px;
+    line-height: 24px;
+}

@@ -12,6 +12,7 @@
 :root{
     --white-color: #FFFFFF;
     --gray-color: #939393;
+    --white-gray-color: #BEBEBE;
     --black-color: #151716;
     --orange-color: #FE5B00;
 }
@@ -33,6 +34,23 @@ h2{
     font-size: 32px;
     line-height: 36px;
     letter-spacing: -0.5px;
+    font-family: "Orenburg";
+}
+
+h3{
+    color: var(--white-color);
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 32px;
+    letter-spacing: 2px;
+}
+
+h2.white{
+    color:  var(--white-color);
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: -0.5px;
+    font-family: "Orenburg";
 }
 
 strong {
