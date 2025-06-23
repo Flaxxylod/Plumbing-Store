@@ -45,6 +45,15 @@ h3{
     letter-spacing: 2px;
 }
 
+h3.black{
+    font-family: "Orenburg";
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: var(--black-color);
+    text-align: center;
+}
+
 h2.white{
     color:  var(--white-color);
     font-size: 32px;

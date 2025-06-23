@@ -1,0 +1,27 @@
+.AdvantagesCard__content{
+    display: flex;
+    justify-content: center;
+    column-gap: 119px;
+}
+
+.advantages__commonblock {
+    margin-top: 54px;
+    display: flex;
+}
+
+.advantages__headerblock {
+    margin-top: 24px;
+}
+
+.advantage__text {
+    margin-top: 12px;
+    max-width: 200px;
+    color: #7B7B7B;
+    line-height: 20px;
+    letter-spacing: 0%;
+    text-align: center;
+}
+
+.advantage__text  p{
+    font-size: 15px;
+}

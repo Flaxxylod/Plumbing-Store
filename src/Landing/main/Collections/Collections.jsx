@@ -5,7 +5,10 @@ const Collections = () => {
             <div className="container">
                 <div className="collections__common__block">
                     <div className="collections__left__block">
-                        <h2 className="white">Коллекции</h2>
+                        <header>
+                            <h2 className="white">Коллекции</h2>
+                        </header>
+
                         <p className="text__block__left">
                             Чувственность и элегантность, пуризм и эксклюзивность, а может уют и романтичность? Наши коллекции, разработанные лучшими дизайнерами отрасли, помогут создать вам именно ту атмосферу ванной комнаты, которую вы всегда искали.
                         </p>
