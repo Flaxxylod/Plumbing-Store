@@ -33,17 +33,7 @@
 
 }
 
-.combobox__element::before {
-    margin-right: 15px;
-    display: inline-block;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    width: 5px;
-    height: 10px;
-    content: "";
-    background-image: url(./../../assets/Common/navigation/icon/Arrow.svg);
-}
+
 
 .combobox__element::after {
     margin: 24px 0;

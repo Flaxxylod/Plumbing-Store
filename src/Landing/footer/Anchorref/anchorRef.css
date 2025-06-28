@@ -1,0 +1,14 @@
+.anchor__ref__content{
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    margin-top: 24px;
+    padding:43px 0px 43px;
+    background-color: #272829;
+    border: 4px solid #484848;
+}
+
+.anchor__ref__content:hover{
+    transition: 0.5s;
+    filter: brightness(1.5)
+}

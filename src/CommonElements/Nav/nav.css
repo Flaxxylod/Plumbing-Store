@@ -1,5 +1,4 @@
 .Nav-content {
-
     color: var(--gray-color);
 
 }
@@ -12,8 +11,3 @@
     
 }
 
-.Search-button {
-    border: solid #494949 1px;
-    background: none;
-    padding: 10px 10px;
-}

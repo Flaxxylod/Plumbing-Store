@@ -1,10 +1,10 @@
 import "./nav.css"
 import logo from "./../../assets/Common/navigation/Logo.svg"
 import phone from "./../../assets/Common/navigation/icon/iphone.svg"
-import search from "./../../assets/Common/navigation/icon/group.svg"
+import SearchButton from "../../Styles/elements/searchbutton/SearchButton"
 const Nav = () => {
     return (
-        <nav className="Nav-content">
+        <nav id="nav" className="Nav-content">
             <div className="container" style={{maxWidth: "1410px", }}>
                 <div className="nav-block">
                     <div style={{ display: "flex", alignItems: "center", columnGap: "26px" }}>
@@ -17,7 +17,7 @@ const Nav = () => {
                             <img src={phone} alt="" />
                             <a href="tel:+7-905-543-23-45">+7 (905) 543 23 45</a>
                         </section>
-                        <button className="Search-button"><img src={search} alt="" /></button>
+                        <SearchButton/>
                     </div>
                 </div>
             </div>

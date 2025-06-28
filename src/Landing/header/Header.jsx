@@ -10,10 +10,10 @@ const Header = () => {
                 <div className="header__common__block">
                     <div className="header__left__block">
                         <h1 style={{ color: "var(--white-color)", marginBottom: "54px" }}>Сантехника и мебель для ванной комнаты</h1>
-                        <ul className="combobox__block">
+                        <ul className="combobox__block link">
                             <li className="combobox__element"><a href="!#">О компании</a></li>
-                            <li className="combobox__element"><a href="!#">О компании</a></li>
-                            <li className="combobox__element"><a href="!#">О компании</a></li>
+                            <li className="combobox__element"><a href="!#">Продукции</a></li>
+                            <li className="combobox__element"><a href="!#">Каталог товаров</a></li>
                         </ul>
                         <div className="header__slider">
                             <ul>
@@ -28,7 +28,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-
+            
         </header>
     );
 }

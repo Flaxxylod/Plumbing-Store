@@ -1,0 +1,104 @@
+.innerheader__content {
+    transition: 0.5s;
+    padding: 15px 0px 14px;
+    position: fixed;
+    z-index: 20;
+    top: 0px;
+    right: 0;
+    left: 0;
+    background-color: #222225;
+
+}
+
+.innerheader__content .container{
+    max-width: 1410px;
+}
+
+
+.innerheader__commonblock {
+    display: flex;
+    align-items: center;
+    column-gap: 312px;
+}
+
+.innerheader__leftblock {
+    display: flex;
+    align-items: center;
+}
+
+.innerheader_listbox {
+    display: flex;
+    column-gap: 25px;
+}
+
+ul.innerheader_listbox li {
+    transition: 0.3s;
+    color: var(--white-gray-color);
+}
+
+ul.innerheader_listbox li:hover {
+    transition: 0.2s;
+    color: var(--white-color)
+}
+
+.ih__catalogproducts {
+    cursor: pointer;
+}
+
+.ih__catalogproducts::after {
+    margin-left: 8px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 10px;
+    height: 6px;
+    content: "";
+    background-image: url(./../../assets/Common/innerheader/Vector.svg);
+
+}
+
+.ih__catalogproducts:hover::after {
+    transition: 0.2s;
+    filter:
+        brightness(0)
+        /* Делает чёрным */
+        saturate(100%)
+        /* Усиливает цвет */
+        invert(100%)
+        /* Начальная коррекция */
+        sepia(0%)
+        /* Добавляет тон */
+        saturate(10000%)
+        /* Усиливает насыщенность */
+        hue-rotate(0deg);
+    /* Красный (0deg) */
+}
+
+.inner__header__rightblock {
+    display: flex;
+    align-items: center;
+}
+
+.ih__rightblock__tel {
+    color: var(--white-gray-color);
+    display: flex;
+}
+
+.ih__rightblock__tel::before {
+    margin-right: 2px;
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    content: "";
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(./../../assets/Common/navigation/icon/iphone.svg);
+}
+
+.ih__rightblock__buttons__block {
+    margin-left: 32px;
+    display: flex;
+    column-gap: 16px;
+}
+

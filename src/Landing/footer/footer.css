@@ -1,0 +1,97 @@
+.footer__content {
+    padding-top: 60px;
+    background-color: #202122;
+    color: var(--white-gray-color);
+}
+
+.footer__content img {
+    margin-right: 86px;
+}
+
+.footer__content ul li {
+    font-size: 16px;
+}
+
+.footer__content ul {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.footer__commonblock {
+    align-items: flex-start;
+    display: flex;
+}
+
+.footer__firstlist {
+    margin-right: 55px;
+}
+
+.footer__secondlist {
+    margin-right: 72px;
+}
+
+.contact__data {
+    margin-right: 80px;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.footer__ref__mail {
+    display: inline-flex;
+    align-items: center;
+}
+
+.footer__ref__mail::before {
+    margin-right: 8px;
+    content: "";
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background: url(./../../assets/Landing/footer/mail.svg);
+}
+
+.footer_ref__tel {
+    display: inline-flex;
+    align-items: center;
+}
+
+.footer__ref__tel::before {
+    margin-right: 8px;
+    content: "";
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background: url(./../../assets/Landing/footer/iphone.svg);
+}
+
+.footer__ref__social {
+    margin-top: 15px;
+}
+
+.footer__other{
+    display: flex;
+    align-items: center;
+    column-gap: 24px;
+    margin-top: 79px;
+    color: #747474;
+    justify-content: flex-end;
+}
+
+.footer__other button{
+    color: #747474;
+    background: none;
+    border: solid 1px #494949;
+    padding: 8px 12px;
+}
+.footer__other p {
+    font-size: 12px;
+}
