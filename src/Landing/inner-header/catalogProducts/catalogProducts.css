@@ -1,0 +1,34 @@
+.catalogproudcts__content strong {
+    font-size: 18px;
+    color: var(--black-color);
+}
+
+.catalogproducts__content {
+
+    max-height: 240px;
+}
+
+
+.catalogproducts__card {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    padding: 56px 110px 58px;
+    background-color: var(--white-color);
+    border: solid #ECECEC 1px;
+    transition: 0.3s;
+}
+
+.catalogproducts__card:hover {
+    transition: 0.5s;
+    background-color: #FAFAFA;
+}
+
+.catalogproducts__card strong {
+    margin-top: 26px;
+}
+
+.catalogproducts__commonblock {
+    display: flex;
+    justify-content: center;
+}

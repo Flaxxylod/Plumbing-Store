@@ -5,10 +5,12 @@ import BucketShopButton from "../../Styles/elements/bucketshopbutton/BucketShopB
 import UserButton from "../../Styles/elements/userbutton/UserButton"
 import { useState } from "react"
 import { useEffect } from "react"
+import CatalogProducts from "./catalogProducts/CatalogProducts"
 const InnerHeader = () => {
 
     const [isHidden, setIsHidden] = useState(false);
     const [lastScrollY, setLastScrollY] = useState(0);
+    const [productsHidden, setProductsHidden] = useState(false)
     useEffect(() => {
         console.log("Работаю")
         const handleScroll = () => {
@@ -19,7 +21,7 @@ const InnerHeader = () => {
                 setIsHidden(true);
             }
             // Если скроллим вверх — показываем
-            else if(currentScrollY < 100) {
+            else if (currentScrollY < 100) {
                 setIsHidden(false);
             }
 
@@ -30,28 +32,34 @@ const InnerHeader = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [lastScrollY]);
     return (
-        <div style={isHidden ? { display: "flex" } : { display: "none" }} className="innerheader__content">
-            <div className="container">
-                <section className="innerheader__commonblock">
-                    <div className="innerheader__leftblock">
-                        <a style={{ marginRight: "36px" }} href="#!"><img src={logo} alt="" /></a>
-                        <ul className="innerheader_listbox">
-                            <li><a href="#!">О компании</a></li>
-                            <li><a href="#!">О продукции</a></li>
-                            <li className="ih__catalogproducts">Каталог товаров</li>
-                        </ul>
-                    </div>
-
-                    <div className="inner__header__rightblock">
-                        <a className="ih__rightblock__tel" href="tel:+">+7 (905) 543 23 45</a>
-                        <div className="ih__rightblock__buttons__block">
-                            <SearchButton />
-                            <BucketShopButton />
-                            <UserButton />
+        <div className="innerheader__wrap">
+            <div style={isHidden ? { display: "flex" } : { display: "none" }} className="innerheader__content">
+                <div className="container">
+                    <section className="innerheader__commonblock">
+                        <div className="innerheader__leftblock">
+                            <a style={{ marginRight: "36px" }} href="#!"><img src={logo} alt="" /></a>
+                            <ul className="innerheader_listbox">
+                                <li><a href="#!">О компании</a></li>
+                                <li><a href="#!">О продукции</a></li>
+                                <li className={productsHidden ? "ih__catalogproducts active" : "ih__catalogproducts"} onClick={() => setProductsHidden(!productsHidden)}>Каталог товаров</li>
+                            </ul>
                         </div>
-                    </div>
-                </section>
+
+                        <div className="inner__header__rightblock">
+                            <a className="ih__rightblock__tel" href="tel:+">+7 (905) 543 23 45</a>
+                            <div className="ih__rightblock__buttons__block">
+                                <SearchButton />
+                                <BucketShopButton />
+                                <UserButton />
+                            </div>
+                        </div>
+
+                    </section>
+                </div>
             </div>
+
+            <CatalogProducts isActive={isHidden && productsHidden} />
+
         </div>
     );
 }

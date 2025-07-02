@@ -50,6 +50,7 @@
 .header__slider ul {
     display: flex;
     column-gap: 10px;
+    margin-bottom: 33px;
 }
 
 .header__slider ul li::before {
@@ -68,8 +69,46 @@
     background: linear-gradient(to right, rgba(245, 112, 44, 1) 50%, rgba(87, 87, 87, 1) 50%);
 }
 
+.header__right_Wrap {
+    align-items: flex-end;
+    display: flex;
+}
+
 .header__right__block {
     display: flex;
-    margin-top: 33px;
+    flex-direction: column;
+    justify-content: flex-end;
+    max-width: 564px;
     height: 656px;
+}
+
+.HeroImg {}
+
+.HeroImg.entering {
+    animation: heroAnimation 2s forwards;
+}
+
+.HeroImg.entered {
+    animation: heroAnimation 3s forwards;
+}
+
+.HeroImg.exiting{
+    animation: heroAnimation 2s reverse;
+}
+
+.HeroImg.exited{
+    animation: heroAnimation 1s reverse;
+}
+
+@keyframes heroAnimation {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
 }

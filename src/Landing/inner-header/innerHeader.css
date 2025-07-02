@@ -1,16 +1,23 @@
 .innerheader__content {
+
     transition: 0.5s;
     padding: 15px 0px 14px;
+
+    background-color: #222225;
+
+}
+
+.innerheader__wrap {
     position: fixed;
     z-index: 20;
     top: 0px;
     right: 0;
     left: 0;
-    background-color: #222225;
-
+    display: flex;
+    flex-direction: column;
 }
 
-.innerheader__content .container{
+.innerheader__content .container {
     max-width: 1410px;
 }
 
@@ -43,6 +50,16 @@ ul.innerheader_listbox li:hover {
 
 .ih__catalogproducts {
     cursor: pointer;
+}
+
+.ih__catalogproducts.active::after {
+    transform: rotate(180deg);
+
+}
+
+.ih__catalogproducts.active {
+    transition: 0.2s;
+    color: var(--white-color)
 }
 
 .ih__catalogproducts::after {
@@ -101,4 +118,3 @@ ul.innerheader_listbox li:hover {
     display: flex;
     column-gap: 16px;
 }
-
