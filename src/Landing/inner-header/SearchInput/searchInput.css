@@ -1,0 +1,19 @@
+.searchinput__content {}
+
+.searchinput__commonblock {
+    max-width: 1086px;
+
+    padding: 34px 56px 31px;
+    background-color: var(--white-color);
+    display: flex;
+
+    align-items: center;
+}
+
+.searchinput__commonblock input {
+    margin-left: 40px;
+}
+
+.searchinput__commonblock button {
+    margin-left: 12px;
+}

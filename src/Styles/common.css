@@ -1,16 +1,19 @@
-html{
+#root {}
+
+html {
     scroll-behavior: smooth;
 }
 
 .wrap {
     max-width: 1920px;
     margin: 0 auto;
+
 }
 
 .container {
     padding: 0 15px;
     margin: 0 auto;
-    max-width: 1185px;
+    max-width: 1200px;
 }
 
 :root {
@@ -92,8 +95,23 @@ ul.link li::before {
     background-image: url(./../assets/Common/navigation/icon/Arrow.svg);
 }
 
-button{
-    border: solid 1px #494949;
+
+
+button.orange {
     border-radius: 2px;
-    background: none;
+    color: var(--white-color);
+    font-weight: bold;
+    padding: 11px 23px;
+    background-color: #FF7028;
+    box-shadow: 5px 2px 0px #FF7028;
+    /* Легкая тень */
+}
+
+input {
+    width: 581px;
+    padding: 16px 0 16px 16px;
+    border-radius: 2px;
+    border: 1px solid #EC9F76;
+    filter: drop-shadow(0 0 6px #FF7028);
+
 }

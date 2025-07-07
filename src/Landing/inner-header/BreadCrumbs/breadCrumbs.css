@@ -1,0 +1,22 @@
+.breadcrumbs__content{
+    background-color: white;
+    display: flex;
+    border-bottom: solid 1px #ECECEC;
+    column-gap: 32px;
+    padding: 24px 0 24px 40px;
+}
+
+.crubms__text{
+    color: #7B7B7B;
+    font-size: 20px;
+
+}
+
+.crubms__text::after{
+    content: "";
+    display: inline;
+    background-size: cover;
+    background: url(./../../../assets/Common/innerheader/BreadCrumbs/Vector.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+}

@@ -1,5 +1,4 @@
 .innerheader__content {
-
     transition: 0.5s;
     padding: 15px 0px 14px;
 
@@ -14,6 +13,7 @@
     right: 0;
     left: 0;
     display: flex;
+    align-items: stretch;
     flex-direction: column;
 }
 

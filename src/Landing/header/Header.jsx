@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Nav from "../../CommonElements/Nav/Nav";
 import { heroData } from "./HeroData";
 import "./header.css";
@@ -30,9 +31,9 @@ const Header = () => {
                             Сантехника и мебель для ванной комнаты
                         </h1>
                         <ul className="combobox__block link">
-                            <li className="combobox__element"><a href="/about">О компании</a></li>
-                            <li className="combobox__element"><a href="/products">Продукции</a></li>
-                            <li className="combobox__element"><a href="/catalog">Каталог товаров</a></li>
+                            <li className="combobox__element"><Link to="/about">О компании</Link></li>
+                            <li className="combobox__element"><Link to="/products">Продукции</Link></li>
+                            <li className="combobox__element"><Link to="/catalog">Каталог товаров</Link></li>
                         </ul>
                         <div className="header__slider">
                             <ul className="slider-dots">

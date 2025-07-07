@@ -1,8 +1,11 @@
-.BucketShopButton__content{
+.BucketShopButton__content {
     flex-wrap: wrap;
     column-gap: 10px;
     display: flex;
     padding: 11px 18px 7px;
+    border: solid 1px #494949;
+    border-radius: 2px;
+    background: none;
 }
 
 .BucketShop__Price {

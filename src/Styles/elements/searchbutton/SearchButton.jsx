@@ -1,9 +1,9 @@
 import "./searchButton.css"
 import search from "./../../../assets/Common/navigation/icon/group.svg"
 
-const SearchButton = () => {
+const SearchButton = ({Click}) => {
     return (
-        <button className="SearchButton__content">
+        <button onClick={Click} className="SearchButton__content">
             <img src={search} alt="" />
         </button>
     );

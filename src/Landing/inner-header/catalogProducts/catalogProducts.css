@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     align-items: baseline;
-    padding: 56px 110px 58px;
+    padding: 56px 106px 58px;
     background-color: var(--white-color);
     border: solid #ECECEC 1px;
     transition: 0.3s;

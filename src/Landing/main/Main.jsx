@@ -9,7 +9,7 @@ const Main = () => {
     return (
         <main className="main__content">
             <Bycompany />
-            <Ourproducts />
+            <Ourproducts>Акционные товары</Ourproducts>
             <Collections />
             <PromotionalItems />
             <Advantages />

@@ -6,31 +6,43 @@ import UserButton from "../../Styles/elements/userbutton/UserButton"
 import { useState } from "react"
 import { useEffect } from "react"
 import CatalogProducts from "./catalogProducts/CatalogProducts"
-const InnerHeader = () => {
-
-    const [isHidden, setIsHidden] = useState(false);
+import SearchInput from "./SearchInput/SearchInput"
+import { useLocation } from "react-router-dom"
+import BreadCrumbs from "./BreadCrumbs/BreadCrumbs"
+const InnerHeader = ({ Visibility }) => {
+    const location = useLocation()
+    Visibility ??= false
+    const [isHidden, setIsHidden] = useState(Visibility);
     const [lastScrollY, setLastScrollY] = useState(0);
     const [productsHidden, setProductsHidden] = useState(false)
-    useEffect(() => {
-        console.log("Работаю")
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY;
+    const [searchInputHidden, setsearchInputHidden] = useState(false)
+    const [directoryHidden, setDirectoryHidden] = useState(true)
+    if (Visibility === true) {
 
-            // Если скроллим вниз и прокрутка больше 100px — скрываем
-            if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                setIsHidden(true);
-            }
-            // Если скроллим вверх — показываем
-            else if (currentScrollY < 100) {
-                setIsHidden(false);
-            }
+    }
+    else {
+        useEffect(() => {
+            console.log("Работаю")
+            const handleScroll = () => {
+                const currentScrollY = window.scrollY;
 
-            setLastScrollY(currentScrollY);
-        };
+                // Если скроллим вниз и прокрутка больше 100px — скрываем
+                if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                    setIsHidden(true);
+                }
+                // Если скроллим вверх — показываем
+                else if (currentScrollY < 100) {
+                    setIsHidden(false);
+                }
 
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [lastScrollY]);
+                setLastScrollY(currentScrollY);
+            };
+
+            window.addEventListener("scroll", handleScroll, { passive: true });
+            return () => window.removeEventListener("scroll", handleScroll);
+        }, [lastScrollY]);
+    }
+
     return (
         <div className="innerheader__wrap">
             <div style={isHidden ? { display: "flex" } : { display: "none" }} className="innerheader__content">
@@ -41,14 +53,14 @@ const InnerHeader = () => {
                             <ul className="innerheader_listbox">
                                 <li><a href="#!">О компании</a></li>
                                 <li><a href="#!">О продукции</a></li>
-                                <li className={productsHidden ? "ih__catalogproducts active" : "ih__catalogproducts"} onClick={() => setProductsHidden(!productsHidden)}>Каталог товаров</li>
+                                <li className={productsHidden ? "ih__catalogproducts active" : "ih__catalogproducts"} onClick={() => { setProductsHidden(!productsHidden), setsearchInputHidden(false) }}>Каталог товаров</li>
                             </ul>
                         </div>
 
                         <div className="inner__header__rightblock">
                             <a className="ih__rightblock__tel" href="tel:+">+7 (905) 543 23 45</a>
                             <div className="ih__rightblock__buttons__block">
-                                <SearchButton />
+                                <SearchButton Click={() => { setsearchInputHidden(!searchInputHidden), setProductsHidden(false) }} />
                                 <BucketShopButton />
                                 <UserButton />
                             </div>
@@ -57,9 +69,14 @@ const InnerHeader = () => {
                     </section>
                 </div>
             </div>
-
+            {location.pathname !== '/' && (
+                <BreadCrumbs
+                    isActive={productsHidden || searchInputHidden}
+                    items={["Главная", "Товары"]}
+                />
+            )}
             <CatalogProducts isActive={isHidden && productsHidden} />
-
+            <SearchInput isActive={isHidden && searchInputHidden} />
         </div>
     );
 }
