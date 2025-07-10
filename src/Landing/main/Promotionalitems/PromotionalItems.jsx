@@ -1,5 +1,5 @@
 import "./promotionalItems.css"
-import PromotionalCard from "./PromotionalCard/PromotionalCard";
+import PromotionalCard from "../../../CommonElements/PromotionalCard/PromotionalCard";
 const PromotionalItems = () => {
     return (
         <div className="PromotionalItems__content">

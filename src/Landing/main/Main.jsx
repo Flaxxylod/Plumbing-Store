@@ -1,6 +1,6 @@
 import "./main.css"
 import Bycompany from "./Bycompany/Bycompany";
-import Ourproducts from "./Ourproducts/Ourproducts";
+import Ourproducts from "../../CommonElements/Ourproducts/Ourproducts";
 import Collections from "./Collections/Collections";
 import PromotionalItems from "./Promotionalitems/PromotionalItems";
 import Advantages from "./Ouradvantages/Advantages";
@@ -9,7 +9,7 @@ const Main = () => {
     return (
         <main className="main__content">
             <Bycompany />
-            <Ourproducts>Акционные товары</Ourproducts>
+            <Ourproducts>Наша продукция</Ourproducts>
             <Collections />
             <PromotionalItems />
             <Advantages />

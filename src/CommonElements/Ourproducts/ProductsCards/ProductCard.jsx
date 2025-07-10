@@ -1,5 +1,6 @@
 import "./productsCard.css"
 import { CardsData } from "./DataOurproducts";
+
 const ProductCard = () => {
 
     const Card = CardsData.map((obj) => (

@@ -1,0 +1,24 @@
+.byproduction__content{
+    margin-top: 56px;
+    padding: 60px 0;
+    background-color: #F6F6F6;
+}
+
+
+
+.byproduction__common__grid {
+    margin-top: 23px;
+    row-gap: 28px;
+    column-gap: 75px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    grid-template-rows: repeat(3, minmax(1fr, auto));
+    
+}
+
+.byproduction__common__grid p {
+    color: var(--black-color);
+    letter-spacing: 0%;
+    line-height: 28px;
+    font-size: 16px;
+}

@@ -2,7 +2,7 @@ import "./ourproducts.css"
 import ProductCard from "./ProductsCards/ProductCard";
 const Ourproducts = ({children}) => {
     return (
-        <div className="ourproducts__content">
+        <div  className="ourproducts__content">
             <div className="container">
                 <div className="ourproducts__common__block">
                     <span className="ourproducts__common__title">

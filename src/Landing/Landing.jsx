@@ -1,7 +1,7 @@
 
 import Header from "./header/Header";
 import Main from "./main/Main";
-import Footer from "./footer/Footer";
+import Footer from "./../CommonElements/footer/Footer.jsx";
 import InnerHeader from "./inner-header/InnerHeader";
 
 import BreadCrumbs from "./inner-header/BreadCrumbs/BreadCrumbs";
