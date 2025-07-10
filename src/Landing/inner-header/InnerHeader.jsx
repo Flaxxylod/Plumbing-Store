@@ -3,20 +3,22 @@ import logo from "./../../assets/Common/navigation/logo.svg"
 import SearchButton from "../../Styles/elements/searchbutton/SearchButton"
 import BucketShopButton from "../../Styles/elements/bucketshopbutton/BucketShopButton"
 import UserButton from "../../Styles/elements/userbutton/UserButton"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { useEffect } from "react"
 import CatalogProducts from "./catalogProducts/CatalogProducts"
 import SearchInput from "./SearchInput/SearchInput"
 import { useLocation } from "react-router-dom"
 import BreadCrumbs from "./BreadCrumbs/BreadCrumbs"
+import { AppContext } from './../../Context'; // Импортируем контекст
 const InnerHeader = ({ Visibility }) => {
+    const {Directory} = useContext(AppContext)
     const location = useLocation()
     Visibility ??= false
     const [isHidden, setIsHidden] = useState(Visibility);
     const [lastScrollY, setLastScrollY] = useState(0);
     const [productsHidden, setProductsHidden] = useState(false)
     const [searchInputHidden, setsearchInputHidden] = useState(false)
-    const [directoryHidden, setDirectoryHidden] = useState(true)
+
     if (Visibility === true) {
 
     }
@@ -72,7 +74,7 @@ const InnerHeader = ({ Visibility }) => {
             {location.pathname !== '/' && (
                 <BreadCrumbs
                     isActive={productsHidden || searchInputHidden}
-                    items={["Главная", "Товары"]}
+                    items={Directory}
                 />
             )}
             <CatalogProducts isActive={isHidden && productsHidden} />

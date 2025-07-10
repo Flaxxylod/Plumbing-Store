@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import "./catalogProducts.css"
 import Picture4 from "./../../../assets/Common/innerheader/catalogproducts/ceramics.svg"
 import Picture3 from "./../../../assets/Common/innerheader/catalogproducts/douche.svg"
@@ -8,31 +9,33 @@ const CatalogProducts = ({ isActive }) => {
         <div style={isActive ? { display: "block" } : { display: "none" }} className="catalogproducts__content">
             <div className="container">
                 <div className="catalogproducts__commonblock">
-                    <a href="">
+                    <Link to={"/catalog/Shifters"}>
                         <div className="catalogproducts__card">
                             <img src={Picture1} />
                             <strong>Сместители</strong>
                         </div>
-                    </a>
+                    </Link>
 
                     <a href="">
                         <div className="catalogproducts__card">
                             <img src={Picture2} />
-                            <strong>Сместители</strong>
+                            <strong>Мебель</strong>
                         </div>
                     </a>
+
+
 
                     <a href="">
                         <div className="catalogproducts__card">
                             <img src={Picture3} />
-                            <strong>Сместители</strong>
+                            <strong>Душевая программа</strong>
                         </div>
                     </a>
 
                     <a href="">
                         <div className="catalogproducts__card">
                             <img src={Picture4} />
-                            <strong>Сместители</strong>
+                            <strong>Фаянс</strong>
                         </div>
                     </a>
 

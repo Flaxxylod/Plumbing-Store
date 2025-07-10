@@ -1,17 +1,14 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { createRoot } from 'react-dom/client'
-import "./Styles/reset.css"
-import "./Styles/common.css"
-import Landing from './Landing/Landing.jsx'
-import CatalogProducts from './Catalog-Products/CatalogProudcts.jsx'
-import ShiftersCatalog from './Shifters-Catalog/ShiftersCatalog.jsx'
+import { BrowserRouter } from 'react-router-dom';
+import { createRoot } from 'react-dom/client';
+import { AppProvider } from './Context.jsx'; // Импортируем только провайдер
+import "./Styles/reset.css";
+import "./Styles/common.css";
+import RouterWrapper from './RouterWrapper.jsx'; // Выносим логику роутов в отдельный файл
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<Landing />} />
-      <Route path='/catalog' element={<CatalogProducts />} />
-      <Route path='/catalog/Shifters' element={<ShiftersCatalog />} />
-    </Routes>
-  </BrowserRouter>,
-)
+  <AppProvider>
+    <BrowserRouter>
+      <RouterWrapper />
+    </BrowserRouter>
+  </AppProvider>
+);
