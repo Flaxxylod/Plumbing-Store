@@ -1,0 +1,59 @@
+.byshifters__content {
+    margin-top: 56px;
+    padding: 60px;
+    background-color: #F6F6F6;
+}
+
+.byshifters__content p, li, span {
+    line-height: 28px;
+    font-size: 16px;
+}
+
+.byshifters__commonblock {
+    column-gap: 75px;
+
+
+    display: flex;
+    margin-top: 23px;
+
+}
+
+.byshifters__leftblock, .byshifters__rightblock {
+    display: flex;
+    flex-direction: column;
+    width: 560px;
+}
+
+.byshifters__rightblock {
+    max-height: 112px;
+}
+
+.byshifters__listblock {
+    margin-top: 39px;
+}
+
+.byshifters__Advantages__list {
+
+    margin-top: 16px;
+    row-gap: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.byshifters__Advantages__list li {
+    position: relative;
+}
+
+.byshifters__Advantages__list li::before {
+    position: absolute;
+    content: "";
+    display: inline-flex;
+    right: 0;
+    left: -16px;
+    top: 12px;
+    width: 11px;
+    height: 8px;
+    background-image: url(./../../assets/Common/Shifters-Catalog/Polygon.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}

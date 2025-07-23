@@ -1,0 +1,35 @@
+.shifterhead__content {
+
+    margin-top: 150px;
+}
+
+.shifterhead__commonblock {
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+}
+
+
+
+.shifterhead__leftblock {
+    column-gap: 350px;
+    display: flex;
+    
+}
+
+.shifterhead__leftblock ul {
+    line-height: 28px;
+    color: #FE5B00;
+    display: flex;
+    align-items: flex-end;
+    column-gap: 24px;
+}
+
+.shifterhead__leftblock ul li {
+    vertical-align: middle;
+}
+
+.shifterhead__rightblock {
+    display: flex;
+
+}

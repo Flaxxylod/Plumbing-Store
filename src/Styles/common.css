@@ -52,6 +52,14 @@ h3 {
     letter-spacing: 2px;
 }
 
+h4{
+    font-family: "Orenburg";
+    color: var(--black-color);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+}
+
 h3.black {
     font-family: "Orenburg";
     font-size: 20px;
@@ -107,11 +115,11 @@ button.orange {
     /* Легкая тень */
 }
 
-input {
+input[type="text"] {
     width: 581px;
     padding: 16px 0 16px 16px;
     border-radius: 2px;
     border: 1px solid #EC9F76;
     filter: drop-shadow(0 0 6px #FF7028);
-
 }
+

@@ -4,8 +4,6 @@ import Main from "./main/Main";
 import Footer from "./../CommonElements/footer/Footer.jsx";
 import InnerHeader from "./inner-header/InnerHeader";
 
-import BreadCrumbs from "./inner-header/BreadCrumbs/BreadCrumbs";
-
 const Landing = () => {
     
     return (

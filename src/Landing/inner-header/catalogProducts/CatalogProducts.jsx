@@ -12,7 +12,7 @@ const CatalogProducts = ({ isActive }) => {
                     <Link to={"/catalog/Shifters"}>
                         <div className="catalogproducts__card">
                             <img src={Picture1} />
-                            <strong>Сместители</strong>
+                            <strong>Смесители</strong>
                         </div>
                     </Link>
 
