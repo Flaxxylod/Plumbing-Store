@@ -22,6 +22,7 @@ html {
     --white-gray-color: #BEBEBE;
     --black-color: #151716;
     --orange-color: #FE5B00;
+    --overlay-color: rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -52,7 +53,7 @@ h3 {
     letter-spacing: 2px;
 }
 
-h4{
+h4 {
     font-family: "Orenburg";
     color: var(--black-color);
     font-weight: 400;
@@ -110,9 +111,8 @@ button.orange {
     color: var(--white-color);
     font-weight: bold;
     padding: 11px 23px;
-    background-color: #FF7028;
-    box-shadow: 5px 2px 0px #FF7028;
-    /* Легкая тень */
+    background-color: var(--orange-color);
+
 }
 
 input[type="text"] {
@@ -120,6 +120,45 @@ input[type="text"] {
     padding: 16px 0 16px 16px;
     border-radius: 2px;
     border: 1px solid #EC9F76;
-    filter: drop-shadow(0 0 6px #FF7028);
+    filter: drop-shadow(0 0 6px var(--orange-color));
 }
 
+/* Стили для затемнения */
+.overlay-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-color);
+    z-index: 1000;
+    backdrop-filter: blur(2px);
+}
+
+.overlay-content {
+    position: relative;
+    z-index: 1001;
+    background-color: var(--white-color);
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+}
+
+/* Затемнение всех элементов кроме выделенного */
+.overlay-active {
+    filter: brightness(0.3) contrast(0.8);
+    pointer-events: none;
+}
+
+.overlay-active * {
+    pointer-events: none;
+}
+
+/* Исключение для модального окна */
+.overlay-active .modal-content,
+.overlay-active .overlay-content {
+    filter: none;
+    pointer-events: auto;
+}

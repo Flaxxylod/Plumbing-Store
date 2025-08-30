@@ -1,7 +1,7 @@
 .PromotionalCard__content {
     position: relative;
     display: flex;
-
+    cursor: pointer;
     max-width: 350px;
     min-height: 354px;
 
@@ -21,7 +21,7 @@
     color: var(--white-color);
     position: absolute;
     padding: 8px 11px;
-    background-color: #FF7028;
+    background-color: var(--orange-color);
     border-radius: 2px;
 }
 

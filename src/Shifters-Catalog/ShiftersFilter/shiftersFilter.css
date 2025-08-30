@@ -3,7 +3,7 @@
     row-gap: 24px;
     padding: 28px 28px;
     border-radius: 4px;
-    border: solid 2px #FF7028;
+    border: solid 2px var(--orange-color);
     display: flex;
     flex-direction: column;
     width: 282px;
@@ -38,8 +38,20 @@
 .shifter__colorlist img {
     width: 25px;
     height: 25px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    box-sizing: border-box;
 }
 
+.shifter__colorlist img:hover {
+    border: 3px solid var(--orange-color);
+
+}
+
+.shifter__colorlist img.selected {
+    border: 3px solid var(--orange-color);
+}
 
 input[type="checkbox"] {
     -webkit-appearance: none;
@@ -56,8 +68,8 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked {
-    background: #FF7028;
-    border-color: #FF7028;
+    background: var(--orange-color);
+    border-color: var(--orange-color);
     background-image: url(./../../assets/Common/filter/Checked.svg);
     background-repeat: no-repeat;
     background-position: center;

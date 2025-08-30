@@ -3,21 +3,38 @@ import ShiftersFilter from "../ShiftersFilter/ShiftersFilter";
 import ReactPaginate from "react-paginate";
 import { useState } from "react";
 import PromotionalCard from "../../CommonElements/PromotionalCard/PromotionalCard";
-import { PromCardData } from "../../CommonElements/PromotionalCard/PromCardData";
-
+import { ShiftersData } from "./ShifterCatalogData";
+import Modal from "../../CommonElements/Modal/Modal";
+import CardProduct from "../../CommonElements/CardProduct/CardProduct";
+import { useRef } from "react";
 const ShifterCatalogProducts = () => {
 
     // Настройки пагинации
-    const itemsPerPage = 9; // Жёстко фиксируем 8 элемента на страницу
+    const itemsPerPage = 9; // Жёстко фиксируем 9 элемента на страницу
     const [currentPage, setCurrentPage] = useState(0);
 
     // Вычисляем элементы для текущей страницы
     const offset = currentPage * itemsPerPage;
-    const currentItems = PromCardData.slice(offset, offset + itemsPerPage);
-    const pageCount = Math.ceil(PromCardData.length / itemsPerPage);
+    const currentItems = ShiftersData.slice(offset, offset + itemsPerPage);
+    const pageCount = Math.ceil(ShiftersData.length / itemsPerPage);
 
     const handlePageClick = ({ selected }) => {
         setCurrentPage(selected);
+    };
+
+    // Настройки модального окна
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedProduct, setSelectedProduct] = useState(null); // хранит данные об кардочке
+
+    const handleProductClick = (product) => { 
+        setSelectedProduct(product); // сохраняет данные в карточку
+        setIsModalOpen(true); //открывает модальное окно
+        console.log(product);
+    };
+
+    const handleCloseModal = () => { // закрывает и сбрасывает данные модального окна
+        setIsModalOpen(false);
+        setSelectedProduct(null);
     };
 
     return (
@@ -30,12 +47,14 @@ const ShifterCatalogProducts = () => {
                         <div className="shifter__products__block">
                             {currentItems.map((item, index) => (
                                 <PromotionalCard
-                                    key={`${item.title}-${index}`}
+
+                                    key={`${item.name}-${index}`}
                                     picture={item.picture}
-                                    title={item.title}
+                                    title={item.name}
                                     price={item.price}
-                                    discountPrice={item.discountPrice}
+                                    discountPrice={item.discountprice}
                                     discount={item.discount}
+                                    onClick={() => handleProductClick(item)}
                                 />
                             ))}
                         </div>
@@ -56,6 +75,15 @@ const ShifterCatalogProducts = () => {
                             />
                         )}
                     </div>
+                    {isModalOpen && selectedProduct && (
+                        <Modal>
+                            <CardProduct
+                                product={selectedProduct}
+                                isOpen={isModalOpen}
+                                onClose={handleCloseModal}
+                            />
+                        </Modal>
+                    )}
                 </div>
             </div>
         </div>

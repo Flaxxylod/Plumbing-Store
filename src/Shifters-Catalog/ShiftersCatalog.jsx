@@ -14,7 +14,8 @@ const ShiftersCatalog = () => {
             <main>
                 <ShifterHead />
                 <ShifterCatalogProducts />
-                <ByShifters/>
+                <ByShifters />
+
             </main>
             <Footer />
         </div>

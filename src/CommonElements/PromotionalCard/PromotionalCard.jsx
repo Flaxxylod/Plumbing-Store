@@ -1,11 +1,11 @@
 import "./Promotionalcard.css"
 
-const PromotionalCard = ({ discount, picture, title, price, discountPrice }) => {
+const PromotionalCard = ({ discount, picture, title, price, discountPrice, onClick }) => {
 
     
     return (
         <>
-            <article className="PromotionalCard__content">
+            <article className="PromotionalCard__content" onClick={onClick}>
             {discount && <div className="Promo__DiscountProcent">{discount}</div>}
             <div className="PromoCommon__block">
 

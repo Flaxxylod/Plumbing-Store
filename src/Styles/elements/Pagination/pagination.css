@@ -63,7 +63,7 @@
     background-color: #FFF7F2;
     
     
-    border: solid 2px #FF7028;
+    border: solid 2px var(--orange-color);
 }
 
 .pagination .active a{

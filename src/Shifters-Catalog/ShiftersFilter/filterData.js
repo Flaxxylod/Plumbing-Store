@@ -1,29 +1,29 @@
 export const filterData = [
     {
-        color: "./../../assets/Common/filter/shifters/Ellipse-1.svg"
+        color: new URL('./../../assets/Common/filter/shifters/Ellipse-1.svg', import.meta.url).href
     },
     {
-        color: "src/assets/Common/filter/shifters/Ellipse-2.svg"
+        color: new URL('./../../assets/Common/filter/shifters/Ellipse-2.svg', import.meta.url).href
     },
     {
-        color: "src/assets/Common/filter/shifters/Ellipse-3.svg"
+        color: new URL('./../../assets/Common/filter/shifters/Ellipse-3.svg', import.meta.url).href
     },
     {
-        color: "src/assets/Common/filter/shifters/Ellipse-4.svg"
+        color: new URL('./../../assets/Common/filter/shifters/Ellipse-4.svg', import.meta.url).href
     },
     {
-        color: "src/assets/Common/filter/shifters/Ellipse-5.svg"
+        color: new URL('./../../assets/Common/filter/shifters/Ellipse-5.svg', import.meta.url).href
     },
     {
-        color: "src/assets/Common/filter/shifters/Ellipse-6.svg"
+        color: new URL('./../../assets/Common/filter/shifters/Ellipse-6.svg', import.meta.url).href
     },
     {
-        color: "src/assets/Common/filter/shifters/Ellipse-7.svg"
+        color: new URL('./../../assets/Common/filter/shifters/Ellipse-7.svg', import.meta.url).href
     },
     {
-        color: "src/assets/Common/filter/shifters/Ellipse-8.svg"
+        color: new URL('./../../assets/Common/filter/shifters/Ellipse-8.svg', import.meta.url).href
     },
     {
-        color: "src/assets/Common/filter/shifters/Ellipse.svg"
+        color: new URL('./../../assets/Common/filter/shifters/Ellipse.svg', import.meta.url).href
     },
 ]

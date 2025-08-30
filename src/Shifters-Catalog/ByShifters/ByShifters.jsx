@@ -1,6 +1,10 @@
 import "./byShifters.css"
+import CardProduct from "../../CommonElements/CardProduct/CardProduct";
+import Modal from "../../CommonElements/Modal/Modal";
+import { useState } from "react";
 
 const ByShifters = () => {
+    const [isModalOpen, setIsModalOpen] = useState(true)
     return (
         <div className="byshifters__content">
             <div className="container">
@@ -39,7 +43,10 @@ const ByShifters = () => {
                             <p>Все смесители Orange просты в обслуживании, устойчивы к образованию и отложению налета. При производстве происходит двойной контроль качества для всей линейки, что исключает появление брака. Выбирая <span style={{ color: "#FE5B00" }}>продукцию Orange</span>, вы можете быть на 100 % уверенными в их исправности и долговечности.</p>
                         </div>
                     </div>
+
                 </section>
+
+
             </div>
         </div>
     );

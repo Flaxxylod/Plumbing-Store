@@ -67,7 +67,7 @@
 
 .collections__price__block{
     border-radius: 2px;
-    background-color: #FF7028;
+    background-color: var(--orange-color);
     padding: 14px 16px 12px 15px;
 }
 
