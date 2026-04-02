@@ -1,17 +1,37 @@
-.collections__content {
-    background: url(./../../../assets/Landing/main/Collections/Rectangle.png) no-repeat,
-        url(./../../../assets/Landing/main/Collections/Group11.png) no-repeat;
+.collections__bgblock__left {
+
+
+    
+
+    background: rgb(6, 7, 7, 0.85);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.collections__bgblock__right {
+   
+    background: url(./../../../assets/Landing/main/Collections/image3.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.collections__bgblock__left, .collections__bgblock__right {
+
+    display: flex;
+
+
 }
 
 .collections__common__block {
-    display: flex;
+
     column-gap: 43px;
 }
 
+
 .text__block__left {
     line-height: 32px;
-    margin-top: 20px;
-    max-width: 486px;
+
+    
     color: var(--white-gray-color);
     font-size: 18px;
 }
@@ -21,11 +41,11 @@
     padding: 67px 107px 0 27px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+
 }
 
 .allcollection__block {
-    margin-top: 330px;
+
     position: relative;
     margin-bottom: 24px;
 }
@@ -65,13 +85,13 @@
     align-items: baseline;
 }
 
-.collections__price__block{
+.collections__price__block {
     border-radius: 2px;
     background-color: var(--orange-color);
     padding: 14px 16px 12px 15px;
 }
 
-.collections__price__block strong{
+.collections__price__block strong {
     font-size: 24px;
     line-height: 24px;
 }

@@ -1,13 +1,5 @@
-.byshifters__content {
-    margin-top: 56px;
-    padding: 60px;
-    background-color: #F6F6F6;
-}
 
-.byshifters__content p, li, span {
-    line-height: 28px;
-    font-size: 16px;
-}
+
 
 .byshifters__commonblock {
     column-gap: 75px;
@@ -18,11 +10,7 @@
 
 }
 
-.byshifters__leftblock, .byshifters__rightblock {
-    display: flex;
-    flex-direction: column;
-    width: 560px;
-}
+
 
 .byshifters__rightblock {
     max-height: 112px;

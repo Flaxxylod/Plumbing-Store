@@ -1,14 +1,12 @@
 .endblock__content {
-    display: flex;
-    margin-top: 80px;
+
     background: url(./../../../assets/Landing/main/Ouradvantages/background.png) no-repeat;
-    color: var(--white-color);
-    padding-top: 564px;
+
 }
 
 .endblock__bycompanyblock {
     text-align: center;
-    
+
     background-color: #F6761A;
     padding: 42px 0px 47px;
 }

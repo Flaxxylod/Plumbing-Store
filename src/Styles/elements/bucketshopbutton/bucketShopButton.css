@@ -1,4 +1,6 @@
 .BucketShopButton__content {
+    max-height: 42px;
+    min-width: 91px;
     flex-wrap: wrap;
     column-gap: 10px;
     display: flex;

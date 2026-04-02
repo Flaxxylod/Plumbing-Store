@@ -1,5 +1,5 @@
 import "./cardProduct.css"
-import shifter from "./../../assets/Common/Product-Card/image.png"
+
 import blueshift from "./../../assets/Common/Product-Card/BlueprintsShifters.png"
 import chrome from "./../../assets/Common/filter/shifters/Ellipse-1.svg"
 import closer from "./../../assets/Common/Product-Card/Vector.svg"
@@ -8,7 +8,14 @@ const CardProduct = ({ product, onClose }) => {
     // Если нет продукта, не рендерим компонент
     if (!product) return null;
 
-    const { picture, name, price, discountprice, discount } = product;
+    const {
+        imageUrl: picture,
+        title: name,
+        price,
+        discount_price: discountprice,
+        discount_percents: discount
+    } = product;
+
 
     return (
         <article className="cardproduct__content">
@@ -69,8 +76,8 @@ const CardProduct = ({ product, onClose }) => {
 
                 <div className="cardproduct__bottomblock">
                     <span className="cardproduct__price">
-                        <strong>{discountprice || price}</strong>
-                        {discount && <span className="discount">{discount}</span>}
+                        <strong>{price +"₽"}</strong>
+                        {discount && <span className="discount">{discount + "₽"}</span>}
                     </span>
                     <button className="orange">Добавить в корзину</button>
                 </div>

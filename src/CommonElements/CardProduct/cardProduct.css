@@ -1,6 +1,6 @@
 .cardproduct__content {
     background-color: var(--white-color);
-    max-width: 768px;
+    
     border-radius: 4px;
     padding: 13px 13px 28px 24px;
 }

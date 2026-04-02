@@ -26,7 +26,7 @@ export default function RouterWrapper() {
         <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/catalog" element={<CatalogProducts />} />
-            <Route path="/catalog/Shifters" element={<ShiftersCatalog />} />
+            <Route path="/catalog/:Shifters" element={<ShiftersCatalog />} />
         </Routes>
     );
 }

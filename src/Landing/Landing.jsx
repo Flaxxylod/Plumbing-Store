@@ -5,17 +5,17 @@ import Footer from "./../CommonElements/footer/Footer.jsx";
 import InnerHeader from "./inner-header/InnerHeader";
 
 const Landing = () => {
-    
+
     return (
-        <div className="wrap">
-            <div className="Landing-content">
-                
-                <Header />
-                <InnerHeader />
-                <Main />
-                <Footer />
-            </div>
+
+        <div className="Landing-content">
+
+            <InnerHeader />
+            <Header />
+            <Main />
+            <Footer />
         </div>
+
     );
 }
 

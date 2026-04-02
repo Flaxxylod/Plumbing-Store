@@ -1,22 +1,44 @@
 import "./shifterCatalogProducts.css"
 import ShiftersFilter from "../ShiftersFilter/ShiftersFilter";
 import ReactPaginate from "react-paginate";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PromotionalCard from "../../CommonElements/PromotionalCard/PromotionalCard";
-import { ShiftersData } from "./ShifterCatalogData";
 import Modal from "../../CommonElements/Modal/Modal";
 import CardProduct from "../../CommonElements/CardProduct/CardProduct";
-import { useRef } from "react";
+import axios from "axios";
+
 const ShifterCatalogProducts = () => {
+    const [shiftersDatas, setShiftersDatas] = useState([])
+
+    const ShiftersData = async () => {
+        try {
+            const shiftersData = await axios.get("http://localhost:8081/api/Shifters/get");
+
+            // Добавляем полный URL к каждой картинке
+            const dataWithImageUrls = shiftersData.data.map(item => ({
+                ...item,
+                imageUrl: `http://localhost:8081/img/${item.image_name}`
+            }));
+
+            console.log("Обновленные данные:", dataWithImageUrls); // ← ЛОГ ПЕРЕД setState
+            setShiftersDatas(dataWithImageUrls);
+        } catch (error) {
+            console.error("Ошибка загрузки данных:", error);
+        }
+    }
+
+    useEffect(() => {
+        ShiftersData()
+    }, [])
 
     // Настройки пагинации
-    const itemsPerPage = 9; // Жёстко фиксируем 9 элемента на страницу
+    const itemsPerPage = 9;
     const [currentPage, setCurrentPage] = useState(0);
 
     // Вычисляем элементы для текущей страницы
     const offset = currentPage * itemsPerPage;
-    const currentItems = ShiftersData.slice(offset, offset + itemsPerPage);
-    const pageCount = Math.ceil(ShiftersData.length / itemsPerPage);
+    const currentItems = shiftersDatas.slice(offset, offset + itemsPerPage);
+    const pageCount = Math.ceil(shiftersDatas.length / itemsPerPage);
 
     const handlePageClick = ({ selected }) => {
         setCurrentPage(selected);
@@ -24,15 +46,15 @@ const ShifterCatalogProducts = () => {
 
     // Настройки модального окна
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectedProduct, setSelectedProduct] = useState(null); // хранит данные об кардочке
+    const [selectedProduct, setSelectedProduct] = useState(null);
 
-    const handleProductClick = (product) => { 
-        setSelectedProduct(product); // сохраняет данные в карточку
-        setIsModalOpen(true); //открывает модальное окно
+    const handleProductClick = (product) => {
+        setSelectedProduct(product);
+        setIsModalOpen(true);
         console.log(product);
     };
 
-    const handleCloseModal = () => { // закрывает и сбрасывает данные модального окна
+    const handleCloseModal = () => {
         setIsModalOpen(false);
         setSelectedProduct(null);
     };
@@ -47,13 +69,12 @@ const ShifterCatalogProducts = () => {
                         <div className="shifter__products__block">
                             {currentItems.map((item, index) => (
                                 <PromotionalCard
-
-                                    key={`${item.name}-${index}`}
-                                    picture={item.picture}
-                                    title={item.name}
+                                    key={`${item.id || item.name}-${index}`} // лучше использовать id
+                                    picture={`http://localhost:8081/img/${item.image_name}`}
+                                    title={item.title}
                                     price={item.price}
-                                    discountPrice={item.discountprice}
-                                    discount={item.discount}
+                                    discountPrice={item.discount_price}
+                                    discount={item.discount_percents}
                                     onClick={() => handleProductClick(item)}
                                 />
                             ))}

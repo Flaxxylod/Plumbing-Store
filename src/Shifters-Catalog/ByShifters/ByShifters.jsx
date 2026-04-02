@@ -1,26 +1,27 @@
 import "./byShifters.css"
-import CardProduct from "../../CommonElements/CardProduct/CardProduct";
-import Modal from "../../CommonElements/Modal/Modal";
-import { useState } from "react";
+
+
 
 const ByShifters = () => {
-    const [isModalOpen, setIsModalOpen] = useState(true)
+
     return (
-        <div className="byshifters__content">
-            <div className="container">
-                <section >
+        <div className="mt-[56px] bg-[#F6F6F6] p-[60px]
+            [&_:is(li,span)]:[text-[1rem];leading-[28px]]
+        ">
+            <section className="container">
+                <div>
                     <header>
                         <h2>Cместители</h2>
                     </header>
-                    <div className="byshifters__commonblock">
+                    <div className="flex gap-x-[75px] mt-[23px]">
 
 
-                        <div className="byshifters__leftblock">
-                            <p>
+                        <div className="flex flex-col  max-w-[560px]">
+                            <p className="text-[1rem]">
                                 Немецкие смесители <span style={{ color: "#FE5B00" }}>Orange</span> — превосходный выбор для тех, кто ценит качество и надежность. У нас представлены удобные, практичные и эргономичные модели для раковин, биде, ванн, душа и кухни. Основа коллекции — смесители с никель-хромовым покрытием, керамическими картриджами и силиконовыми аэраторами.
                             </p>
 
-                            <div className="byshifters__listblock">
+                            <div className="mt-[39px]">
                                 <h4>Преимущества сантехнического оборудования:</h4>
                                 <ul className="byshifters__Advantages__list">
                                     <li>
@@ -39,15 +40,15 @@ const ByShifters = () => {
                             </div>
                         </div>
 
-                        <div className="byshifters__rightblock">
-                            <p>Все смесители Orange просты в обслуживании, устойчивы к образованию и отложению налета. При производстве происходит двойной контроль качества для всей линейки, что исключает появление брака. Выбирая <span style={{ color: "#FE5B00" }}>продукцию Orange</span>, вы можете быть на 100 % уверенными в их исправности и долговечности.</p>
+                        <div className="flex flex-col  max-w-[560px]">
+                            <p className="text-[1rem]">Все смесители Orange просты в обслуживании, устойчивы к образованию и отложению налета. При производстве происходит двойной контроль качества для всей линейки, что исключает появление брака. Выбирая <span style={{ color: "#FE5B00" }}>продукцию Orange</span>, вы можете быть на 100 % уверенными в их исправности и долговечности.</p>
                         </div>
                     </div>
 
-                </section>
+                </div>
 
 
-            </div>
+            </section>
         </div>
     );
 }

@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 const Modal = ({ children }) => {
     const modalRoot = document.getElementById("modal__window");
     return ReactDOM.createPortal(<div className="modal">
-        <div className="modal__content">
+        <div className="max-w-[768px] w-full">
             {children}
         </div>
     </div>, modalRoot);

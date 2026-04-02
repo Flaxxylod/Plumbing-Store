@@ -1,7 +1,6 @@
+/* Обнуление стилей */
 * {
-    padding: 0;
-    margin: 0;
-    border: 0;
+    box-sizing: border-box;
 }
 
 *, *:before, *:after {
@@ -25,12 +24,12 @@ nav, footer, header, aside {
 html, body {
     height: 100%;
     width: 100%;
-    font-size: 100%;
-    line-height: 1;
-    font-size: 14px;
+    margin: 0;
+    padding: 0;
     -ms-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+    /* Убрал font-size и line-height - они будут в common.css */
 }
 
 input, button, textarea {
@@ -62,15 +61,24 @@ ul li {
     list-style: none;
 }
 
+/* ИСПРАВЛЕНО: адаптивные изображения */
 img {
-    vertical-align: top;
+    max-width: 100%;
+    
+    display: block;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-size: inherit;
     font-weight: inherit;
+    margin: 0; /* Добавлено */
+}
+
+p {
+    margin: 0; /* Добавлено */
 }
 
 a {
     color: inherit;
 }
+

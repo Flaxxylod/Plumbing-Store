@@ -1,16 +1,16 @@
 import "./ourproducts.css"
 import ProductCard from "./ProductsCards/ProductCard";
-const Ourproducts = ({children}) => {
+const Ourproducts = ({ children }) => {
     return (
-        <div  className="ourproducts__content">
+        <div className="mb-[100px] ">
             <div className="container">
-                <div className="ourproducts__common__block">
-                    <span className="ourproducts__common__title">
-                        <h2>
-                            {children}
-                        </h2>
-                    </span>
-                    <ProductCard/>
+                <div className="">
+
+                    <h2>
+                        {children}
+                    </h2>
+                    
+                    <ProductCard />
                 </div>
             </div>
         </div>
