@@ -1,4 +1,4 @@
-import "./shiftersCatalog.css"
+
 import InnerHeader from "../Landing/inner-header/InnerHeader";
 import Footer from "../CommonElements/footer/Footer";
 import ShifterHead from "./ShifterHead/ShifterHead";
@@ -9,7 +9,7 @@ const ShiftersCatalog = () => {
     const {Shifters} = useParams();
     console.log(Shifters)
     return (
-        <div className="shifterscatalog__content">
+        <div >
             <nav>
                 <InnerHeader Visibility={true} />
             </nav>

@@ -60,13 +60,13 @@ const ShifterCatalogProducts = () => {
     };
 
     return (
-        <div className="shiftercatalogproducts__content">
+        <div className="flex mt-[32px]">
             <div className="container">
-                <div className="shifter__catalog__commonblock">
+                <div className="flex gap-x-[42px]">
                     <ShiftersFilter />
                     <div className="shifter__catalog__wrap">
                         {/* Сетка товаров (4 в строку) */}
-                        <div className="shifter__products__block">
+                        <div className="grid grid-cols-[repeat(3,minmax(300px,1fr))] grid-rows-[repeat(3,minmax(300px,1fr))]">
                             {currentItems.map((item, index) => (
                                 <PromotionalCard
                                     key={`${item.id || item.name}-${index}`} // лучше использовать id
@@ -88,11 +88,11 @@ const ShifterCatalogProducts = () => {
                                 marginPagesDisplayed={1}
                                 onPageChange={handlePageClick}
                                 containerClassName="pagination"
-                                activeClassName="active"
-                                previousLabel="← Назад"
-                                nextLabel="Вперед →"
-                                breakLabel="..."
-                                forcePage={currentPage}
+                        activeClassName="active"
+                        previousLabel="← Назад"
+                        nextLabel="Вперед →"
+                        breakLabel="..."
+                        forcePage={currentPage}
                             />
                         )}
                     </div>
