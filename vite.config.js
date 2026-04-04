@@ -21,5 +21,14 @@ export default defineConfig({
     port: 3000,
     open: true,
     host: true,
+    proxy: {
+      '/api': {
+        target: 'http://192.168.1.122', // IP вашего компьютера
+        changeOrigin: true,
+        secure: false
+      }
+    }
   }
+
+
 })

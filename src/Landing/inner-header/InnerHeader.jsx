@@ -21,7 +21,7 @@ const InnerHeader = () => {
     const [searchInputHidden, setsearchInputHidden] = useState(false)
 
     return (
-        <div className="sticky top-0 z-20 w-full bg-white shadow-md">
+        <nav id="nav" className="fixed top-0 left-0 right-0 z-20 w-full bg-white shadow-md">
             <div
                 style={isHidden ? { display: "flex" } : { display: "none" }}
                 className="innerheader__content w-full"
@@ -74,7 +74,7 @@ const InnerHeader = () => {
             </div>
 
             {/* Хлебные крошки */}
-            {location.pathname !== '/' && (
+            {location.pathname !== '/' && !MenubarHidden &&  (
                 <BreadCrumbs
                     isActive={productsHidden || searchInputHidden}
                     items={Directory}
@@ -85,7 +85,7 @@ const InnerHeader = () => {
             <CatalogProducts isActive={isHidden && productsHidden} />
             <SearchInput isActive={isHidden && searchInputHidden} />
             <MenuBar isActive={MenubarHidden} />
-        </div>
+        </nav>
     )
 }
 

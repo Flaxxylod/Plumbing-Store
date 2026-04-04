@@ -10,10 +10,10 @@ const CatalogProducts = () => {
 
     return (
         <div className="wrap">
+            <InnerHeader />
             <div className="catalogproducts__content">
-                <nav id="nav">
-                    <InnerHeader   />
-                </nav>
+
+
 
                 <main>
                     <Ourproducts>Каталог товаров</Ourproducts>

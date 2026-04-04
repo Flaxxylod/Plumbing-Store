@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import UserButton from "../userbutton/UserButton";
 const MenuBar = ({ isActive = false }) => {
 
@@ -6,7 +7,7 @@ const MenuBar = ({ isActive = false }) => {
 
     if (isActive)
         return (
-            <div className="lg:hidden h-[100vh] bg-[var(--inner-header)] p-[40px_0px_28px_15px] flex flex-col ">
+            <div className="lg:hidden h-screen bg-[var(--inner-header)] p-[40px_15px_28px_15px] flex flex-col gap-y-[241px]">
                 <ul className="flex flex-col gap-y-[20px] text-[var(--white-gray-color)] max-lg:text-[2rem]">
                     <li>О компании</li>
                     <li>О продукции</li>
@@ -14,7 +15,7 @@ const MenuBar = ({ isActive = false }) => {
                     {OpenCatalog ? (
                         <>
                             <ul className="[&>li]:text-[1rem]">
-                                <li>Смесители</li>
+                                <Link to={"/catalog/Shifters"}><li>Смесители</li></Link>
                                 <li>Мебель</li>
                                 <li>Душевая программа</li>
                                 <li>Аксессуары</li>
@@ -25,9 +26,9 @@ const MenuBar = ({ isActive = false }) => {
 
                 </ul>
 
-                <div className="flex ">
-                    <UserButton />
+                <div className="flex justify-between items-center ">
                     <span className="text-[var(--gray-color)]"><a href="#tel+79055432345">+7 (905) 543 23 45</a></span>
+                    <UserButton />
                 </div>
             </div>
         );
