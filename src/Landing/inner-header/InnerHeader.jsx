@@ -82,7 +82,7 @@ const InnerHeader = () => {
             )}
 
             {/* Выпадающие компоненты */}
-            <CatalogProducts isActive={isHidden && productsHidden} />
+            <CatalogProducts isActive={productsHidden} />
             <SearchInput isActive={searchInputHidden} />
             <MenuBar isActive={MenubarHidden} />
         </nav>
