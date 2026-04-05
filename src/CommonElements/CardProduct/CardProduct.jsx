@@ -18,14 +18,14 @@ const CardProduct = ({ product, onClose }) => {
 
 
     return (
-        <article className="cardproduct__content">
+        <article className="bg-[var(--white-color)] rounded-[4px] p-[13px_13px_28px_24px]">
             <div className="cardproduct__commonblock">
-                <div className="cardproduct__closerblock">
-                    <button onClick={onClose}><img src={closer} alt="" /></button>
+                <div className="flex justify-end">
+                    <button className="bg-none" onClick={onClose}><img src={closer} alt="" /></button>
                 </div>
 
-                <div className="cardproduct__topblock">
-                    <div className="cardproduct__leftblock">
+                <div className="flex mt-[5px] p-[0px_11px_19px_0px] gap-x-[32px]">
+                    <div className="flex gap-x-[20px]">
                         <div className="cardproduct__imagesblock">
                             <img src={picture} alt="" />
                             <img src={blueshift} alt="" />
@@ -35,13 +35,13 @@ const CardProduct = ({ product, onClose }) => {
                             <img src={picture} alt="" />
                         </div>
                     </div>
-                    <div className="cardproduct__rightblock">
+                    <div className="max-w-[378px]">
                         <section className="cardproduct__descriptionblock">
                             <h4>
                                 {name}
                             </h4>
 
-                            <div className="cardproduct__infoblock">
+                            <div className="mt-[16px] max-w-[300px]">
                                 <ul className="info-list">
                                     <li>
                                         <span className="info-label">Цвет</span>
@@ -74,9 +74,9 @@ const CardProduct = ({ product, onClose }) => {
                 </div>
 
 
-                <div className="cardproduct__bottomblock">
+                <div className="flex justify-end gap-x-[82px] p-[24px_0px_0px_0px] bg-[#FCFCFC] border-t-[1px] border-t-[#ECECEC]">
                     <span className="cardproduct__price">
-                        <strong>{price +"₽"}</strong>
+                        <strong className="text-[PT_Sans]! leading-[32px] text-[2rem]!">{price + "₽"}</strong>
                         {discount && <span className="discount">{discount + "₽"}</span>}
                     </span>
                     <button className="orange">Добавить в корзину</button>

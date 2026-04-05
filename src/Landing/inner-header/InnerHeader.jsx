@@ -16,14 +16,14 @@ const InnerHeader = () => {
     const { Directory } = useContext(AppContext)
     const location = useLocation()
     const [MenubarHidden, SetMenuBarHidden] = useState(false)
-    const [isHidden, setIsHidden] = useState(true)
+
     const [productsHidden, setProductsHidden] = useState(false)
     const [searchInputHidden, setsearchInputHidden] = useState(false)
 
     return (
         <nav id="nav" className="fixed top-0 left-0 right-0 z-20 w-full bg-white shadow-md">
             <div
-                style={isHidden ? { display: "flex" } : { display: "none" }}
+
                 className="innerheader__content w-full"
             >
                 <div className="container mx-auto px-4 w-full max-w-[1180px]">
@@ -74,7 +74,7 @@ const InnerHeader = () => {
             </div>
 
             {/* Хлебные крошки */}
-            {location.pathname !== '/' && !MenubarHidden &&  (
+            {location.pathname !== '/' && !MenubarHidden && (
                 <BreadCrumbs
                     isActive={productsHidden || searchInputHidden}
                     items={Directory}
@@ -83,7 +83,7 @@ const InnerHeader = () => {
 
             {/* Выпадающие компоненты */}
             <CatalogProducts isActive={isHidden && productsHidden} />
-            <SearchInput isActive={isHidden && searchInputHidden} />
+            <SearchInput isActive={searchInputHidden} />
             <MenuBar isActive={MenubarHidden} />
         </nav>
     )

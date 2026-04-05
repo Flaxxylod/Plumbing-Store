@@ -84,7 +84,7 @@ strong {
     color: var(--black-color);
     font-size: 1rem;
     font-weight: bold;
-    font-family: "Orenburg";
+
 }
 
 strong.white {
@@ -111,21 +111,19 @@ ul.link li::before {
     background-image: url(./../assets/Common/navigation/icon/Arrow.svg);
 }
 
-li {
+/* li {
     transition: 0.3s;
     color: var(--white-gray-color);
 }
 
-li:hover {
+/* li:hover {
     transition: 0.2s;
     color: var(--white-color)
 }
 
 li {
     cursor: pointer;
-}
-
-
+} */
 button.orange {
     border-radius: 0.125rem;
     color: var(--white-color);
@@ -193,6 +191,6 @@ input[type="text"] {
         line-height: 1.066;
     }
 
-    
+
 
 }
