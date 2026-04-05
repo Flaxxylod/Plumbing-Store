@@ -16,14 +16,13 @@ const InnerHeader = () => {
     const { Directory } = useContext(AppContext)
     const location = useLocation()
     const [MenubarHidden, SetMenuBarHidden] = useState(false)
-    const [isHidden, setIsHidden] = useState(true)
     const [productsHidden, setProductsHidden] = useState(false)
     const [searchInputHidden, setsearchInputHidden] = useState(false)
 
     return (
         <div className="sticky top-0 z-20 w-full bg-white shadow-md">
             <div
-                style={isHidden ? { display: "flex" } : { display: "none" }}
+
                 className="innerheader__content w-full"
             >
                 <div className="container mx-auto px-4 w-full max-w-[1180px]">
@@ -82,8 +81,8 @@ const InnerHeader = () => {
             )}
 
             {/* Выпадающие компоненты */}
-            <CatalogProducts isActive={isHidden && productsHidden} />
-            <SearchInput isActive={isHidden && searchInputHidden} />
+            <CatalogProducts isActive={productsHidden} />
+            <SearchInput isActive={searchInputHidden} />
             <MenuBar isActive={MenubarHidden} />
         </div>
     )
