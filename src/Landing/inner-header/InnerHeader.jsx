@@ -33,7 +33,7 @@ const InnerHeader = () => {
                             <a className="mr-[36px] shrink-0" href="#!">
                                 <img src={logo} alt="" className="h-8 w-auto" />
                             </a>
-                            <ul className="innerheader_listbox lg:flex hidden gap-6">
+                            <ul className="text-[var(--white-gray-color)] lg:flex hidden gap-6">
                                 <li><a href="#!">О компании</a></li>
                                 <li><a href="#!">О продукции</a></li>
                                 <li
