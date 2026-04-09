@@ -6,8 +6,8 @@ import ShifterCatalogProducts from "./ShifterCatalogProducts/ShifterCatalogProdu
 import ByShifters from "./ByShifters/ByShifters";
 import { useParams } from "react-router-dom";
 const ShiftersCatalog = () => {
-    const {Shifters} = useParams();
-    console.log(Shifters)
+    const { Shifters } = useParams();
+
     return (
         <div >
             <nav>

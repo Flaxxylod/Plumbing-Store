@@ -1,29 +1,30 @@
 import "./shiftersFilter.css"
 import { filterData } from "./filterData.js"
-import { useState, useEffect } from "react";
+import { useState } from "react";
 const ShiftersFilter = () => {
 
     const [colorChange, setColorChange] = useState(0)
     const [colorsSelected, setColorsSelected] = useState([])
     const selectColor = (index) => {
         setColorChange(index)
-        setColorsSelected((array) =>  array.includes(index) ? array.filter((item) => item !== index) :
+        setColorsSelected((array) => array.includes(index) ? array.filter((item) => item !== index) :
             [...array, index]) // в array.filter((item) => item !== index) item - элемент массива, index текущий элемент массива.
-        
+
     }
 
 
     return (
-        <div className="shiftersFilter__content">
-            <div className="sfilter__commonblock">
-                <div className="shiferfilterblock">
+        <div className="lg:block hidden">
+            <div className="relative flex flex-col gap-y-[24px] p-[28px] rounded-[4px] border-[var(--orange-color)] border-[2px] w-[282px]">
+
+                <div className="border-b-[1px] border-b-[#ECECEC] pb-[20px]">
                     <input type="checkbox" name="" id="" />
-                    <label htmlFor="">Акционные товары</label>
+                    <label >Акционные товары</label>
                 </div>
 
-                <div className="shiferfilterblock">
+                <div>
                     <strong>Тип вентиля</strong>
-                    <ul className="shifter__checklist">
+                    <ul className="flex flex-col mt-[16px] gap-y-[12px]">
                         <li>
                             <input type="checkbox" name="" id="" />
                             <label htmlFor="">Двухвентильный</label>

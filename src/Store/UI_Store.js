@@ -1,14 +1,19 @@
 
+
 import { create } from "zustand";
 
 const UI_Store = create((set, get) => ({
     OpenSearchInput: false,
     OpeningSearchInput: () => set((state) => ({ OpenSearchInput: !state.OpenSearchInput })),
     reset: () => set({ OpenSearchInput: false }),
+
     MobileVersion_width: 768, // ширина при которой должна включаться мобильная версия
     CurrentWidth: window.innerWidth, // ширина экрана при загрузке сайта
 
     MobileVersion: false, //переключатель мобильной версии
+
+    SwitchingMobileVersion: () => set((state) => ({ MobileVersion: state.MobileVersion })), //переключатель мобильной версии
+
     FindingWidth: () => { // нахождение ширины экрана в настоящий момент
         set({ CurrentWidth: window.innerWidth }) // обновляет в поле CurrentWidth: значение ширины экрана
         get().SwitchMobileVersion() //вызов следующей функции
