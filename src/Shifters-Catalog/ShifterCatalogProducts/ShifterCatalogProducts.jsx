@@ -1,4 +1,4 @@
-import "./shifterCatalogProducts.css"
+
 import ShiftersFilter from "../ShiftersFilter/ShiftersFilter";
 import ReactPaginate from "react-paginate";
 import { useEffect, useState } from "react";
@@ -51,7 +51,7 @@ const ShifterCatalogProducts = () => {
     const handleProductClick = (product) => {
         setSelectedProduct(product);
         setIsModalOpen(true);
-        console.log(product);
+
     };
 
     const handleCloseModal = () => {
@@ -62,11 +62,11 @@ const ShifterCatalogProducts = () => {
     return (
         <div className="flex mt-[32px]">
             <div className="container">
-                <div className="flex gap-x-[42px]">
+                <div className="flex max-lg:justify-center gap-x-[42px]">
                     <ShiftersFilter />
                     <div className="shifter__catalog__wrap">
                         {/* Сетка товаров (4 в строку) */}
-                        <div className="grid grid-cols-[repeat(3,minmax(300px,1fr))] grid-rows-[repeat(3,minmax(300px,1fr))]">
+                        <div className="grid lg:grid-cols-[repeat(3,minmax(275px,1fr))] md:grid-cols-2">
                             {currentItems.map((item, index) => (
                                 <PromotionalCard
                                     key={`${item.id || item.name}-${index}`} // лучше использовать id
@@ -88,11 +88,11 @@ const ShifterCatalogProducts = () => {
                                 marginPagesDisplayed={1}
                                 onPageChange={handlePageClick}
                                 containerClassName="pagination"
-                        activeClassName="active"
-                        previousLabel="← Назад"
-                        nextLabel="Вперед →"
-                        breakLabel="..."
-                        forcePage={currentPage}
+                                activeClassName="active"
+                                previousLabel="← Назад"
+                                nextLabel="Вперед →"
+                                breakLabel="..."
+                                forcePage={currentPage}
                             />
                         )}
                     </div>

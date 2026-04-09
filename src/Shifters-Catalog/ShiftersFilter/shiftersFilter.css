@@ -1,25 +1,4 @@
-.sfilter__commonblock {
-    position: relative;
-    row-gap: 24px;
-    padding: 28px 28px;
-    border-radius: 4px;
-    border: solid 2px var(--orange-color);
-    display: flex;
-    flex-direction: column;
-    width: 282px;
-}
 
-.shiferfilterblock {
-    border-bottom: 1px solid #ECECEC;
-    padding-bottom: 20px;
-    /* если нужно отступ */
-}
-
-.shiferfilterblock:last-child {
-    border-bottom: none;
-    padding-bottom: none;
-    /* если нужно отступ */
-}
 
 .shifter__checklist {
     margin-top: 16px;
@@ -44,10 +23,7 @@
     box-sizing: border-box;
 }
 
-.shifter__colorlist img:hover {
-    border: 3px solid var(--orange-color);
 
-}
 
 .shifter__colorlist img.selected {
     border: 3px solid var(--orange-color);
