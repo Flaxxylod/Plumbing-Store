@@ -1,9 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import UserButton from "../userbutton/UserButton";
 const MenuBar = ({ isActive = false }) => {
 
     const [OpenCatalog, SetOpenCatalog] = useState(false)
+
+    useEffect(() => {
+
+        if (isActive) {
+            document.body.style.overflow = 'hidden';
+        }
+        else {
+            document.body.style.overflow = 'unset';
+        }
+
+        return () => {
+            document.body.style.overflow = 'unset';
+        }
+    }, [isActive])
+
+
 
     if (isActive)
         return (

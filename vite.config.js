@@ -8,6 +8,11 @@ export default defineConfig({
     react(),
     tailwindcss(), // Это автоматически находит tailwind.config.js
   ],
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/Tests/setupTests.js',
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

@@ -1,5 +1,3 @@
-
-
 .shifter__checklist {
     margin-top: 16px;
     row-gap: 12px;
@@ -21,6 +19,17 @@
     transition: all 0.2s ease;
     cursor: pointer;
     box-sizing: border-box;
+}
+
+@media (width < 750px) {
+    .shifter__colorlist img {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        transition: all 0.2s ease;
+        cursor: pointer;
+        box-sizing: border-box;
+    }
 }
 
 

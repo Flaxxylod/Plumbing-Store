@@ -9,19 +9,19 @@ const ByShifters = () => {
             [&_:is(li,span)]:[text-[1rem];leading-[28px]]
         ">
             <section className="container">
-                <div>
-                    <header>
+                <div className="min-w-[328px]">
+                    <section>
                         <h2>Cместители</h2>
-                    </header>
-                    <div className="flex gap-x-[75px] mt-[23px]">
+                    </section>
+                    <div className="flex max-md:flex-col gap-x-[75px] max-md:gap-y-[24px] mt-[23px]">
 
 
-                        <div className="flex flex-col  max-w-[560px]">
+                        <div className="flex flex-col  max-w-[560px] max-md:gap-y-[24px] ">
                             <p className="text-[1rem]">
                                 Немецкие смесители <span style={{ color: "#FE5B00" }}>Orange</span> — превосходный выбор для тех, кто ценит качество и надежность. У нас представлены удобные, практичные и эргономичные модели для раковин, биде, ванн, душа и кухни. Основа коллекции — смесители с никель-хромовым покрытием, керамическими картриджами и силиконовыми аэраторами.
                             </p>
 
-                            <div className="mt-[39px]">
+                            <div className="min-md:mt-[39px]">
                                 <h4>Преимущества сантехнического оборудования:</h4>
                                 <ul className="byshifters__Advantages__list">
                                     <li>

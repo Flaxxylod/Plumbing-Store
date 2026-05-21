@@ -3,6 +3,7 @@ import "./cardProduct.css"
 import blueshift from "./../../assets/Common/Product-Card/BlueprintsShifters.png"
 import chrome from "./../../assets/Common/filter/shifters/Ellipse-1.svg"
 import closer from "./../../assets/Common/Product-Card/Vector.svg"
+import Button from "../../Styles/elements/Button/Button"
 
 const CardProduct = ({ product, onClose }) => {
     // Если нет продукта, не рендерим компонент
@@ -74,12 +75,12 @@ const CardProduct = ({ product, onClose }) => {
                 </div>
 
 
-                <div className="flex justify-end gap-x-[82px] p-[24px_0px_0px_0px] bg-[#FCFCFC] border-t-[1px] border-t-[#ECECEC]">
-                    <span className="cardproduct__price">
+                <div className="flex justify-end gap-x-[68px] p-[24px_0px_0px_0px] bg-[#FCFCFC] border-t-[1px] border-t-[#ECECEC]">
+                    <div className="flex  items-center">
                         <strong className="text-[PT_Sans]! leading-[32px] text-[2rem]!">{price + "₽"}</strong>
-                        {discount && <span className="discount">{discount + "₽"}</span>}
-                    </span>
-                    <button className="orange">Добавить в корзину</button>
+                        {discount && <span className="line-through text-[#A5A5A5] ml-[1rem]">{discountprice + "₽"}</span>}
+                    </div>
+                    <Button>Добавить в корзину</Button>
                 </div>
 
             </div>

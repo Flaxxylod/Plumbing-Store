@@ -124,14 +124,7 @@ ul.link li::before {
 li {
     cursor: pointer;
 } */
-button.orange {
-    border-radius: 0.125rem;
-    color: var(--white-color);
-    font-weight: bold;
-    padding: 0.687em 0.695em;
-    background-color: var(--orange-color);
 
-}
 
 input[type="text"] {
     width: 100%;

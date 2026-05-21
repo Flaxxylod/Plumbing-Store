@@ -1,7 +1,7 @@
 
 import ShiftersFilter from "../ShiftersFilter/ShiftersFilter";
 import ReactPaginate from "react-paginate";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import PromotionalCard from "../../CommonElements/PromotionalCard/PromotionalCard";
 import Modal from "../../CommonElements/Modal/Modal";
 import CardProduct from "../../CommonElements/CardProduct/CardProduct";
@@ -37,8 +37,16 @@ const ShifterCatalogProducts = () => {
 
     // Вычисляем элементы для текущей страницы
     const offset = currentPage * itemsPerPage;
-    const currentItems = shiftersDatas.slice(offset, offset + itemsPerPage);
-    const pageCount = Math.ceil(shiftersDatas.length / itemsPerPage);
+    const currentItems = useMemo(() => {
+
+        return shiftersDatas.slice(offset, offset + itemsPerPage);
+    }, [shiftersDatas, offset, currentPage])
+
+
+    const pageCount = useMemo(() => {
+        return Math.ceil(shiftersDatas.length / itemsPerPage);
+
+    }, [shiftersDatas.length, itemsPerPage])
 
     const handlePageClick = ({ selected }) => {
         setCurrentPage(selected);

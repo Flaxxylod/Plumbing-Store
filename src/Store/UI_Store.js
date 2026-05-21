@@ -7,6 +7,7 @@ const UI_Store = create((set, get) => ({
     OpeningSearchInput: () => set((state) => ({ OpenSearchInput: !state.OpenSearchInput })),
     reset: () => set({ OpenSearchInput: false }),
 
+
     MobileVersion_width: 768, // ширина при которой должна включаться мобильная версия
     CurrentWidth: window.innerWidth, // ширина экрана при загрузке сайта
 
@@ -27,10 +28,10 @@ const UI_Store = create((set, get) => ({
         else {
             set({ MobileVersion: false }) //декстопная версия активирована
         }
-    }
+    },
 
-
-
+    Filter_IsActive: false,
+    Activating_Filter: () => set((state) => ({ Filter_IsActive: !state.Filter_IsActive })),
 
 })
 )
