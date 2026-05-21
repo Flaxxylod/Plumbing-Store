@@ -21,6 +21,7 @@ const ShifterHead = () => {
                         </ul>
                         <div className="flex">
                             <ComboBox />
+
                         </div>
                     </div>
                 </div>

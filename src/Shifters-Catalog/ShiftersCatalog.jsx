@@ -9,13 +9,17 @@ const ShiftersCatalog = () => {
     const { Shifters } = useParams();
 
     return (
-        <div >
+        <div className="">
             <nav>
                 <InnerHeader Visibility={true} />
             </nav>
-            <main>
+            <main className="relative">
                 <ShifterHead />
                 <ShifterCatalogProducts />
+                <div className="sticky flex justify-center top-0 bottom-0  lg:hidden block">
+                    <button className="orange rounded-[30px]! px-[24px]!">Фильтры</button>
+                </div>
+
                 <ByShifters />
 
             </main>
