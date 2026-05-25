@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import UserButton from "../userbutton/UserButton";
-const MenuBar = ({ isActive = false }) => {
+const MenuBar = ({ isActive }) => {
 
     const [OpenCatalog, SetOpenCatalog] = useState(false)
 

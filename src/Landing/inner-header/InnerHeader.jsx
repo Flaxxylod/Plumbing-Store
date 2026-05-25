@@ -34,9 +34,9 @@ const InnerHeader = () => {
                                 <img src={logo} alt="" className="h-8 w-auto" />
                             </a>
                             <ul className="text-[var(--white-gray-color)] lg:flex hidden gap-6">
-                                <li><a href="#!">О компании</a></li>
-                                <li><a href="#!">О продукции</a></li>
-                                <li
+                                <li role="button"><a href="#!">О компании</a></li>
+                                <li role="button"><a href="#!">О продукции</a></li>
+                                <li role="button"
                                     className={`cursor-pointer ${productsHidden ? "ih__catalogproducts active" : "ih__catalogproducts"}`}
                                     onClick={() => {
                                         setProductsHidden(!productsHidden)
@@ -54,7 +54,7 @@ const InnerHeader = () => {
                                 +7 (905) 543 23 45
                             </a>
                             <div className="flex gap-4">
-                                <SearchButton
+                                <SearchButton 
                                     Click={() => {
                                         setsearchInputHidden(!searchInputHidden)
                                         setProductsHidden(false)
@@ -67,7 +67,7 @@ const InnerHeader = () => {
 
                         {/* Кнопка меню для мобильных */}
                         <div className="lg:hidden flex">
-                            <MenuButton Click={() => SetMenuBarHidden(!MenubarHidden)} />
+                            <MenuButton  Click={() => SetMenuBarHidden(!MenubarHidden)} />
                         </div>
                     </div>
                 </div>
