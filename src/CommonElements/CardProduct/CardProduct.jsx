@@ -5,7 +5,7 @@ import chrome from "./../../assets/Common/filter/shifters/Ellipse-1.svg"
 import closer from "./../../assets/Common/Product-Card/Vector.svg"
 import Button from "../../Styles/elements/Button/Button"
 
-const CardProduct = ({ product, onClose }) => {
+const CardProduct = ({ product, onClose, testid }) => {
     // Если нет продукта, не рендерим компонент
     if (!product) return null;
 
@@ -19,7 +19,7 @@ const CardProduct = ({ product, onClose }) => {
 
 
     return (
-        <article className="bg-[var(--white-color)] rounded-[4px] p-[13px_13px_28px_24px]">
+        <article data-testid={testid} className="bg-[var(--white-color)] rounded-[4px] p-[13px_13px_28px_24px]">
             <div className="cardproduct__commonblock">
                 <div className="flex justify-end">
                     <button className="bg-none" onClick={onClose}><img src={closer} alt="" /></button>

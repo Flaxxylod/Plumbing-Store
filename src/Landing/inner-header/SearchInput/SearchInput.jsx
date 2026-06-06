@@ -1,15 +1,15 @@
 import Button from "../../../Styles/elements/Button/Button";
 import "./searchInput.css"
-const SearchInput = ({ isActive, testid }) => {
+const SearchInput = ({ isActive }) => {
     return (
-        <div  style={isActive ? { display: "flex" } : { display: "none" }} className="searchinput__content">
+        <div style={isActive ? { display: "flex" } : { display: "none" }} className="searchinput__content">
             <div className="container">
                 <section className="searchinput__commonblock">
                     <header className="header__searchinput">
                         <h2>Что вы ищите?</h2>
                     </header>
                     <input type="text" placeholder="Раковина для ванной комнаты..." />
-                    <Button >Искать</Button>
+                    <Button>Искать</Button>
                 </section>
             </div>
         </div>

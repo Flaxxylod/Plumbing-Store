@@ -20,7 +20,7 @@ const ShifterCatalogProducts = () => {
                 imageUrl: `http://localhost:8081/img/${item.image_name}`
             }));
 
-            console.log("Обновленные данные:", dataWithImageUrls); // ← ЛОГ ПЕРЕД setState
+
             setShiftersDatas(dataWithImageUrls);
         } catch (error) {
             console.error("Ошибка загрузки данных:", error);
@@ -84,6 +84,7 @@ const ShifterCatalogProducts = () => {
                                     discountPrice={item.discount_price}
                                     discount={item.discount_percents}
                                     onClick={() => handleProductClick(item)}
+                                    testid={"PromotionalCard"}
                                 />
                             ))}
                         </div>
@@ -105,11 +106,12 @@ const ShifterCatalogProducts = () => {
                         )}
                     </div>
                     {isModalOpen && selectedProduct && (
-                        <Modal>
+                        <Modal testid={"Modal"}>
                             <CardProduct
                                 product={selectedProduct}
                                 isOpen={isModalOpen}
                                 onClose={handleCloseModal}
+                                testid={"CardProduct"}
                             />
                         </Modal>
                     )}
