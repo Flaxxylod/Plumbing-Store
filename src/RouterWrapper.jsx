@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { useAppContext } from './Context.jsx'; // Используем кастомный хук из контекста
+import { useAppContext } from './Context.tsx'; // Используем кастомный хук из контекста
 import Landing from './Landing/Landing.jsx';
 import CatalogProducts from './Catalog-Products/CatalogProudcts.jsx';
 import ShiftersCatalog from './Shifters-Catalog/ShiftersCatalog.jsx';
