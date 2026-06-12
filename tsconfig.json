@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+        "target": "ES2020",
+        "lib": [
+            "DOM",
+            "DOM.Iterable",
+            "ESNext"
+        ],
+        "jsx": "react-jsx",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        // 👇 ГЛАВНОЕ - РАЗРЕШИТЬ JS ФАЙЛЫ
+        "allowJs": true,
+        "checkJs": false, // пока не проверяем типы в JS
+        "noEmit": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "isolatedModules": true,
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+        "strict": false // можно начать с false, потом включить
+    },
+    "include": [
+        "**/*.js", // все js файлы
+        "**/*.jsx", // все jsx файлы  
+        "**/*.ts", // все ts файлы
+        "**/*.tsx" // все tsx файлы
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "build"
+    ]
+}
