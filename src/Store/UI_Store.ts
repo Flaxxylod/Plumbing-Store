@@ -2,7 +2,21 @@
 
 import { create } from "zustand";
 
-const UI_Store = create((set, get) => ({
+interface UIStoreType {
+    OpenSearchInput: boolean,
+    OpeningSearchInput: () => void,
+    reset: () => void,
+
+    MobileVersion_width: number,
+    CurrentWidth: number,
+    MobileVersion: boolean,
+    SwitchMobileVersion: () => void,
+    SwitchingMobileVersion: () => void,
+    Filter_IsActive: boolean,
+    FindingWidth: () => void
+}
+
+const UI_Store = create<UIStoreType>((set, get) => ({
     OpenSearchInput: false,
     OpeningSearchInput: () => set((state) => ({ OpenSearchInput: !state.OpenSearchInput })),
     reset: () => set({ OpenSearchInput: false }),

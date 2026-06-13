@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 import { heroData } from "./HeroData";
 import "./header.css";
 import UI_Store from "../../Store/UI_Store"
@@ -7,9 +6,11 @@ import { useEffect, useState } from "react";
 import SearchInput from "../inner-header/SearchInput/SearchInput";
 import { Transition } from "react-transition-group";
 
+
+type transitionState = 'entering' | 'entered' | 'exiting' | 'exited';
 const Header = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [isAnimating, setIsAnimating] = useState(true);
+    const [currentIndex, setCurrentIndex] = useState<number>(0);
+    const [isAnimating, setIsAnimating] = useState<boolean>(true);
     const OpenSearchInput = UI_Store((state) => state.OpenSearchInput)
 
     useEffect(() => {
@@ -53,8 +54,9 @@ const Header = () => {
 
                                 <div className="max-md:absolute  max-md:bottom-0 max-md:left-[200px] max-md:-z-1  lg:hidden md:flex flex-col justify-end ">
                                     <div className="flex flex-col justify-end  h-full max-md:max-w-[248px] max-md:max-h-[292px] lg:max-w-[564px] md:max-h-[444px] md:max-w-[444px]">
+
                                         <Transition in={isAnimating} timeout={500}>
-                                            {state => (
+                                            {(state: transitionState) => (
                                                 <img
                                                     className={`HeroImg ${state} object-cover min-h-[290px] min-w-[248px]`}
 
@@ -89,7 +91,7 @@ const Header = () => {
                     <div className="hidden lg:flex flex-col justify-end">
                         <div className="flex flex-col justify-end  h-full max-md:max-w-[242px] max-md:max-h-[292px] lg:max-w-[564px] lg:max-h-[552px]">
                             <Transition in={isAnimating} timeout={500}>
-                                {state => (
+                                {(state: transitionState) => (
                                     <img
                                         className={`HeroImg ${state} object-cover`}
 

@@ -1,4 +1,9 @@
-export const heroData = [
+interface HeroData {
+    id: number,
+    picture: string,
+}
+
+export const heroData: HeroData[] = [
     {
         id: 0,
         picture: "src/assets/Landing/Header/header-hero1.png"
