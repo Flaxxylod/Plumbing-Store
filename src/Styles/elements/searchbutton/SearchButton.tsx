@@ -1,9 +1,13 @@
 
 import search from "./../../../assets/Common/navigation/icon/group.svg"
 
-const SearchButton = ({Click}) => {
+interface SearchButtonProps {
+    onClick: () => void
+}
+
+const SearchButton = ({ onClick }: SearchButtonProps) => {
     return (
-        <button  onClick={Click} className="border border-[#494949] border-[1px] rounded-[2px] p-[10px]">
+        <button onClick={onClick} className="border border-[#494949] border-[1px] rounded-[2px] p-[10px]">
             <img src={search} className="filter grayscale lg:grayscale-0" alt="" />
         </button>
     );

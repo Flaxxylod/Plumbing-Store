@@ -1,5 +1,11 @@
 import "./breadCrumbs.css"
-const BreadCrumbs = ({ items, isActive }) => {
+
+interface BreadCrumbsProps {
+    isActive: Boolean,
+    items: string[]
+}
+
+const BreadCrumbs = ({ items, isActive }: BreadCrumbsProps) => {
     return (
         <div style={isActive ? { display: "none" } : { display: "flex" }} className="breadcrumbs__content flex gap-x-[32px] lg:p-[24px_0_24px_40px] p-[16px_14px_14px_16px] ">
             {items.map((item, index) => (

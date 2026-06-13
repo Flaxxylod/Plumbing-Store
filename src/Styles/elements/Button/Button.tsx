@@ -1,6 +1,12 @@
 
+interface ButtonProps {
+    children: string,
+    type?: string,
+    click?: () => void
+    styling?: string
+}
 
-const Button = ({ children, type, click, styling }) => {
+const Button = ({ children, type, click, styling }: ButtonProps) => {
 
 
     switch (type) {

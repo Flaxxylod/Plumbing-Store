@@ -1,24 +1,24 @@
 import "./innerHeader.css"
 import logo from "./../../assets/Common/navigation/logo.svg"
-import SearchButton from "../../Styles/elements/searchbutton/SearchButton"
-import BucketShopButton from "../../Styles/elements/bucketshopbutton/BucketShopButton"
-import UserButton from "../../Styles/elements/userbutton/UserButton"
 import { useContext, useState } from "react"
 import CatalogProducts from "./catalogProducts/CatalogProducts"
 import SearchInput from "./SearchInput/SearchInput"
 import { useLocation } from "react-router-dom"
 import BreadCrumbs from "./BreadCrumbs/BreadCrumbs"
-import { AppContext } from './../../Context'
+import { AppContext } from '../../Context'
+import UserButton from "../../Styles/elements/userbutton/UserButton"
 import MenuButton from "../../Styles/elements/MenuButton/MenuButton"
+import BucketShopButton from "../../Styles/elements/bucketshopbutton/BucketShopButton"
+import SearchButton from "../../Styles/elements/searchbutton/SearchButton"
 import MenuBar from "../../Styles/elements/MenuButton/MenuBar"
 
 const InnerHeader = () => {
     const { Directory } = useContext(AppContext)
     const location = useLocation()
-    const [MenubarHidden, SetMenuBarHidden] = useState(false)
+    const [MenubarHidden, SetMenuBarHidden] = useState<Boolean>(false)
 
-    const [productsHidden, setProductsHidden] = useState(false)
-    const [searchInputHidden, setsearchInputHidden] = useState(false)
+    const [productsHidden, setProductsHidden] = useState<Boolean>(false)
+    const [searchInputHidden, setsearchInputHidden] = useState<Boolean>(false)
 
     return (
         <nav id="nav" className="fixed top-0 left-0 right-0 z-20 w-full bg-white shadow-md">
@@ -54,20 +54,20 @@ const InnerHeader = () => {
                                 +7 (905) 543 23 45
                             </a>
                             <div className="flex gap-4">
-                                <SearchButton 
-                                    Click={() => {
+                                <SearchButton
+                                    onClick={() => {
                                         setsearchInputHidden(!searchInputHidden)
                                         setProductsHidden(false)
                                     }}
                                 />
-                                <BucketShopButton />
+                                <BucketShopButton Price={0} />
                                 <UserButton />
                             </div>
                         </div>
 
                         {/* Кнопка меню для мобильных */}
                         <div className="lg:hidden flex">
-                            <MenuButton  Click={() => SetMenuBarHidden(!MenubarHidden)} />
+                            <MenuButton onClick={() => SetMenuBarHidden(!MenubarHidden)} />
                         </div>
                     </div>
                 </div>

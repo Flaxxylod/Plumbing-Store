@@ -9,22 +9,19 @@
         "jsx": "react-jsx",
         "module": "ESNext",
         "moduleResolution": "bundler",
-        // 👇 ГЛАВНОЕ - РАЗРЕШИТЬ JS ФАЙЛЫ
         "allowJs": true,
-        "checkJs": false, // пока не проверяем типы в JS
+        "checkJs": false,
         "noEmit": true,
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "isolatedModules": true,
         "skipLibCheck": true,
         "resolveJsonModule": true,
-        "strict": false // можно начать с false, потом включить
+        "strict": false
     },
     "include": [
-        "**/*.js", // все js файлы
-        "**/*.jsx", // все jsx файлы  
-        "**/*.ts", // все ts файлы
-        "**/*.tsx" // все tsx файлы
+        "src/**/*", // 👈 Этого достаточно! Включит все файлы в src
+        "src/types/**/*.d.ts" // 👈 Явно указываем .d.ts файлы
     ],
     "exclude": [
         "node_modules",

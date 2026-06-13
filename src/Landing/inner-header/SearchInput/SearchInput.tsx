@@ -1,6 +1,11 @@
 import Button from "../../../Styles/elements/Button/Button";
 import "./searchInput.css"
-const SearchInput = ({ isActive }) => {
+
+interface SearchInputProps {
+    isActive: Boolean
+}
+
+const SearchInput = ({ isActive }: SearchInputProps) => {
     return (
         <div style={isActive ? { display: "flex" } : { display: "none" }} className="searchinput__content">
             <div className="container">
