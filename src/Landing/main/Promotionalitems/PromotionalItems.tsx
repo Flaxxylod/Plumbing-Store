@@ -2,12 +2,23 @@
 import PromotionalCard from "../../../CommonElements/PromotionalCard/PromotionalCard";
 import Carosuel from "../../../CommonElements/Carosuel/Carosuel";
 import axios from "axios";
-import { useEffect, useState } from "react";
-const PromotionalItems = () => {
-    const [PromProductsData, SetPromProductsData] = useState([])
-    const [DataLoaded, SetDataLoaded] = useState(false)
+import { FC, useEffect, useState } from "react";
 
-    const GetPromotionalProductsData = async () => {
+
+
+interface PromotionalItem {
+    title: string,
+    image_name: string,
+    price: string,
+    discount_price?: string,
+    discount_percents?: string
+}
+
+const PromotionalItems = () => {
+    const [PromProductsData, SetPromProductsData] = useState<PromotionalItem[]>([])
+    const [DataLoaded, SetDataLoaded] = useState<boolean>(false)
+
+    const GetPromotionalProductsData = async (): Promise<void> => {
         try {
             const PostPromProducts = await axios.get("http://localhost:8081/api/Shifters/get");
             SetPromProductsData(PostPromProducts.data)

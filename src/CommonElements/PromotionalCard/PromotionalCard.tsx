@@ -1,7 +1,18 @@
 import { data } from "autoprefixer";
 
 
-const PromotionalCard = ({ discount, picture, title, price, discountPrice, onClick, testid }) => {
+interface PromotionalCardProps {
+    discount?: string | undefined,
+    discountPrice?: string | undefined,
+    price: string,
+    picture: string,
+    title: string,
+    onClick?: () => void
+    testid?: string | undefined
+
+}
+
+const PromotionalCard = ({ discount, picture, title, price, discountPrice, onClick, testid }: PromotionalCardProps) => {
 
 
     return (

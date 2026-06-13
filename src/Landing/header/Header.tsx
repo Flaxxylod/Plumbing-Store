@@ -11,7 +11,7 @@ type transitionState = 'entering' | 'entered' | 'exiting' | 'exited';
 const Header = () => {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [isAnimating, setIsAnimating] = useState<boolean>(true);
-    const OpenSearchInput = UI_Store((state) => state.OpenSearchInput)
+    const OpenSearchInput: boolean = UI_Store((state: any) => state.OpenSearchInput)
 
     useEffect(() => {
         const interval = setInterval(() => {

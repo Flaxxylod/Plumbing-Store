@@ -2,8 +2,14 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const Carosuel = ({ items, children }) => {
-    const carouselStyles = `
+interface CarosuelProps {
+    items?: any,
+    children: React.ReactNode,
+
+}
+
+const Carosuel = ({ items, children }: CarosuelProps) => {
+    const carouselStyles: string = `
            
             .slick-slide {
                 max-width: 264px;
@@ -32,7 +38,7 @@ const Carosuel = ({ items, children }) => {
             }
     `;
 
-    const settings = {
+    const settings: { dots: boolean, infinite: boolean, speed: number, slidesToShow: number, slidesToScroll: number, arrows: boolean, responsive: {}, carouselStyles: string } = {
         dots: false,
         infinite: false,
         speed: 500,
@@ -65,7 +71,7 @@ const Carosuel = ({ items, children }) => {
         carouselStyles: carouselStyles
     };
 
-    const slides = items || children;
+    const slides: boolean = items || children;
 
     if (!slides || !Array.isArray(slides)) {
         console.log("Carosuel: нет данных для отображения");
