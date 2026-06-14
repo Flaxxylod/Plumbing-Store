@@ -7,10 +7,26 @@ import Modal from "../../CommonElements/Modal/Modal";
 import CardProduct from "../../CommonElements/CardProduct/CardProduct";
 import axios from "axios";
 
-const ShifterCatalogProducts = () => {
-    const [shiftersDatas, setShiftersDatas] = useState([])
 
-    const ShiftersData = async () => {
+interface ShifterDatasType {
+    id: number,
+    title: string,
+    image_name: string,
+    imageUrl: string,
+    name: string,
+    price: number,
+    discount_price?: number,
+    discount_percents?: number,
+    onClick?: () => void,
+    testid?: string
+}
+
+
+
+const ShifterCatalogProducts = () => {
+    const [shiftersDatas, setShiftersDatas] = useState<ShifterDatasType[]>([])
+
+    const ShiftersData = async (): Promise<void> => {
         try {
             const shiftersData = await axios.get("http://localhost:8081/api/Shifters/get");
 
@@ -32,11 +48,11 @@ const ShifterCatalogProducts = () => {
     }, [])
 
     // Настройки пагинации
-    const itemsPerPage = 9;
-    const [currentPage, setCurrentPage] = useState(0);
+    const itemsPerPage: number = 9;
+    const [currentPage, setCurrentPage] = useState<number>(0);
 
     // Вычисляем элементы для текущей страницы
-    const offset = currentPage * itemsPerPage;
+    const offset: number = currentPage * itemsPerPage;
     const currentItems = useMemo(() => {
 
         return shiftersDatas.slice(offset, offset + itemsPerPage);
@@ -48,21 +64,21 @@ const ShifterCatalogProducts = () => {
 
     }, [shiftersDatas.length, itemsPerPage])
 
-    const handlePageClick = ({ selected }) => {
+    const handlePageClick = ({ selected }): void => {
         setCurrentPage(selected);
     };
 
     // Настройки модального окна
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectedProduct, setSelectedProduct] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    const [selectedProduct, setSelectedProduct] = useState<ShifterDatasType | null>(null);
 
-    const handleProductClick = (product) => {
+    const handleProductClick = (product: ShifterDatasType): void => {
         setSelectedProduct(product);
         setIsModalOpen(true);
 
     };
 
-    const handleCloseModal = () => {
+    const handleCloseModal = (): void => {
         setIsModalOpen(false);
         setSelectedProduct(null);
     };
@@ -107,9 +123,8 @@ const ShifterCatalogProducts = () => {
                     </div>
                     {isModalOpen && selectedProduct && (
                         <Modal testid={"Modal"}>
-                            <CardProduct
+                            <CardProduct {...selectedProduct}
                                 product={selectedProduct}
-                                isOpen={isModalOpen}
                                 onClose={handleCloseModal}
                                 testid={"CardProduct"}
                             />

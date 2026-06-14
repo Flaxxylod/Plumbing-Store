@@ -2,9 +2,9 @@ import { data } from "autoprefixer";
 
 
 interface PromotionalCardProps {
-    discount?: string | undefined,
-    discountPrice?: string | undefined,
-    price: string,
+    discount?: number | undefined,
+    discountPrice?: number | undefined,
+    price: number,
     picture: string,
     title: string,
     onClick?: () => void

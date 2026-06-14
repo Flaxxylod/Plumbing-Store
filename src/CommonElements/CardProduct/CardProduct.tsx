@@ -5,7 +5,22 @@ import chrome from "./../../assets/Common/filter/shifters/Ellipse-1.svg"
 import closer from "./../../assets/Common/Product-Card/Vector.svg"
 import Button from "../../Styles/elements/Button/Button"
 
-const CardProduct = ({ product, onClose, testid }) => {
+type CardProductProps = {
+    product?: {
+        imageUrl: string;
+        title: string;
+        price: number;
+        discount_price?: number;
+        discount_percents?: number;
+        id?: number;
+        name?: string;
+    };
+    onClose: () => void;
+    testid?: string;
+}
+
+
+const CardProduct = ({ product, onClose, testid }: CardProductProps) => {
     // Если нет продукта, не рендерим компонент
     if (!product) return null;
 
