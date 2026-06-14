@@ -2,11 +2,20 @@ import React from 'react';
 import { useSelect } from 'downshift';
 import './comboBox.css';
 
-const options = [
+
+
+type Option = {
+    value: string,
+    label: string,
+}
+
+
+const options: Option[] = [
     { value: 'option1', label: 'Сначала популярные' },
     { value: 'option2', label: 'Сначала недавние' },
     { value: 'option3', label: 'Сначала дешевые' },
 ];
+
 
 function MySelect() {
     const {
