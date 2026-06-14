@@ -9,17 +9,17 @@ import Button from "../Styles/elements/Button/Button";
 import UI_Store from "../Store/UI_Store";
 const ShiftersCatalog = () => {
 
-    const MobileFilter_IsActive = UI_Store((state) => state.Activating_Filter)
+    const MobileFilter_IsActive: () => void = UI_Store((state) => state.Activating_Filter)
     return (
         <div className="">
             <nav>
-                <InnerHeader Visibility={true} />
+                <InnerHeader />
             </nav>
             <main className="relative">
                 <ShifterHead />
                 <ShifterCatalogProducts />
                 <div className="sticky flex justify-center top-0 bottom-0  lg:hidden block">
-                    <Button type={"Rounded"} click={MobileFilter_IsActive}>Фильтры</Button>
+                    <Button type={"Rounded"} onClick={MobileFilter_IsActive}>Фильтры</Button>
                 </div>
 
                 <ByShifters />

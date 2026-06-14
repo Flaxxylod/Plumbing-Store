@@ -14,6 +14,7 @@ interface UIStoreType {
     SwitchingMobileVersion: () => void,
     Filter_IsActive: boolean,
     FindingWidth: () => void
+    Activating_Filter: () => void,
 }
 
 const UI_Store = create<UIStoreType>((set, get) => ({
