@@ -3,11 +3,11 @@ import logo from "./../../assets/Common/navigation/Logo.svg"
 import phone from "./../../assets/Common/navigation/icon/iphone.svg"
 import SearchButton from "../../Styles/elements/searchbutton/SearchButton"
 import MenuButton from "../../Styles/elements/MenuButton/MenuButton"
-import UI_store from "./../../Store/UI_Store"
+import UI_store from "../../Store/UI_Store"
 import { useState } from "react"
 const Nav = () => {
-    const [OpenSearchInput, SetOpenSearchInput] = useState(false)
-    const OpeningSearchInput = UI_store((state) => state.OpeningSearchInput)
+    const [OpenSearchInput, SetOpenSearchInput] = useState<boolean>(false)
+    const OpeningSearchInput: () => void = UI_store((state) => state.OpeningSearchInput)
     return (
         <nav id="nav" className="text-[var(--gray-color)] mx-[16px]">
             <div className="!flex justify-center">
@@ -25,7 +25,7 @@ const Nav = () => {
                                 <a href="tel:+7-905-543-23-45">+7 (905) 543 23 45</a>
                             </div>
                             <div className="flex gap-x-[12px]">
-                                <SearchButton Click={OpeningSearchInput} />
+                                <SearchButton onClick={OpeningSearchInput} />
                                 <MenuButton />
                             </div>
                         </div>

@@ -1,7 +1,7 @@
 import Menu from "./../../../assets/Common/navigation/icon/MenuButton.svg"
 
 interface MenuButtonProps {
-    onClick: () => void
+    onClick?: () => void
 
 }
 

@@ -1,4 +1,11 @@
-export const filterData = [
+
+type FilterDataType = {
+    color: string;
+}
+
+type FilterDataTypeArray = FilterDataType[]
+
+export const filterData: FilterDataTypeArray = [
     {
         color: new URL('./../../assets/Common/filter/shifters/Ellipse-1.svg', import.meta.url).href
     },
