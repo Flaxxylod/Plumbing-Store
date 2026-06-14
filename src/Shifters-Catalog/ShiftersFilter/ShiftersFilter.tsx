@@ -1,22 +1,24 @@
 import "./shiftersFilter.css"
 import { filterData } from "./filterData.js"
 import { useState } from "react";
-import Button from "../../Styles/elements/Button/Button.jsx";
+import Button from "../../Styles/elements/Button/Button.js";
 import UI_Store from "../../Store/UI_Store.js";
 const ShiftersFilter = () => {
 
-    const [colorChange, setColorChange] = useState(0)
-    const [colorsSelected, setColorsSelected] = useState([])
-    const MobileFilter_IsActive = UI_Store((state) => state.Filter_IsActive)
+    const [colorChange, setColorChange] = useState<number>(0)
+    const [colorsSelected, setColorsSelected] = useState<number[]>([])
+    const MobileFilter_IsActive: boolean = UI_Store((state) => state.Filter_IsActive)
 
-    const selectColor = (index) => {
+    const selectColor = (index: number): void => {
         setColorChange(index)
-        setColorsSelected((array) => array.includes(index) ? array.filter((item) => item !== index) :
+        setColorsSelected((array: number[]) => array.includes(index) ? array.filter((item) => item !== index) :
             [...array, index]) // в array.filter((item) => item !== index) item - элемент массива, index текущий элемент массива.
 
     }
 
-
+    const handleActivatingFilter = (): void => {
+        UI_Store((state) => state.Activating_Filter)
+    }
 
     return (
         <div className={`lg:block ${MobileFilter_IsActive ? "block" : "hidden"}   max-lg:fixed max-lg:z-30 max-lg:top-0 max-lg:left-0 max-lg:right-0`}>
@@ -83,7 +85,7 @@ const ShiftersFilter = () => {
                             </li>
                         </ul>
                     </div>
-                    <Button styling={"lg:hidden"} click={UI_Store((state) => state.Activating_Filter)}>Показать товары</Button>
+                    <Button styling={"lg:hidden"} onClick={handleActivatingFilter}>Показать товары</Button>
                 </div>
             </div>
         </div >
