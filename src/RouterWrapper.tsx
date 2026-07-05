@@ -11,7 +11,7 @@ export default function RouterWrapper() {
 
     useEffect(() => {
         switch (location.pathname) {
-            case "/catalog/Shifters":
+            case "/catalog/Category":
                 setDirectory(["Главная", "Товары", "Смесители"]);
                 break;
             case "/catalog":
@@ -26,7 +26,7 @@ export default function RouterWrapper() {
         <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/catalog" element={<CatalogProducts />} />
-            <Route path="/catalog/:Shifters" element={<ShiftersCatalog />} />
+            <Route path="/catalog/:Category" element={<ShiftersCatalog />} />
         </Routes>
     );
 }

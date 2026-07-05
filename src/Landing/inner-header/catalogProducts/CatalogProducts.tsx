@@ -21,12 +21,12 @@ const CatalogProducts = ({ isActive }: CatalogProductsProps) => {
                         </div>
                     </Link>
 
-                    <a href="">
+                    <Link to={"/catalog/Furnitures"}>
                         <div className="catalogproducts__card">
                             <img src={Picture2} />
                             <strong>Мебель</strong>
                         </div>
-                    </a>
+                    </Link>
 
 
 

@@ -18,7 +18,7 @@ const ShiftersCatalog = () => {
             <main className="relative">
                 <ShifterHead />
                 <ShifterCatalogProducts />
-                <div className="sticky flex justify-center top-0 bottom-0  lg:hidden block">
+                <div className="sticky flex justify-center top-0 bottom-0 mt-[20px] lg:hidden block">
                     <Button type={"Rounded"} onClick={MobileFilter_IsActive}>Фильтры</Button>
                 </div>
 
