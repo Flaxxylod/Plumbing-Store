@@ -17,7 +17,7 @@ const PromotionalCard = ({ discount, picture, title, price, discountPrice, onCli
 
     return (
 
-        <article data-testid={testid} className="relative flex  cursor-pointer lg:min-w-[262px] lg:max-w-[300px] lg:min-h-[354px] max-md:max-w-[360px]" onClick={onClick}>
+        <article data-testid={testid} className="relative flex  cursor-pointer min-w-[262px] max-w-[300px] lg:min-h-[354px] max-md:max-w-[360px]" onClick={onClick}>
             {discount && <div className="absolute max-md:hidden right-[12px] top-[12px] rounded-xs  py-[8px] px-[11px] bg-[var(--orange-color)]"><span className="text-[var(--white-color)]">{discount + "%"}</span></div>}
             <div className="py-[24px] px-[20px] flex md:flex-col flex-grow-[1] max-md:items-center border border-solid border-[#ECECEC]">
 

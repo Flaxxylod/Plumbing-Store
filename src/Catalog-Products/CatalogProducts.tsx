@@ -9,13 +9,13 @@ import ByProduction from "./main/ByProduction/ByProduction.jsx";
 const CatalogProducts = () => {
 
     return (
-        <div className="wrap">
+        <div>
             <InnerHeader />
-            <div className="catalogproducts__content">
+            <div >
 
 
 
-                <main>
+                <main >
                     <Ourproducts>Каталог товаров</Ourproducts>
                     <PopularProducts />
                     <ByProduction />
