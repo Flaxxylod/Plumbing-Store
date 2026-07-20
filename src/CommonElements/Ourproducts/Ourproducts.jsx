@@ -2,7 +2,7 @@ import "./ourproducts.css"
 import ProductCard from "./ProductsCards/ProductCard";
 const Ourproducts = ({ children }) => {
     return (
-        <div className="mb-[100px] mt-[120px] ">
+        <div className="mb-[100px]">
             <div className="container">
                 <div >
 

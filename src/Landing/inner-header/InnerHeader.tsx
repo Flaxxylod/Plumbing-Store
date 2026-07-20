@@ -1,6 +1,6 @@
 import "./innerHeader.css"
 import logo from "./../../assets/Common/navigation/logo.svg"
-import { useContext, useState } from "react"
+import { useContext, useLayoutEffect, useRef, useState } from "react"
 import CatalogProducts from "./catalogProducts/CatalogProducts"
 import SearchInput from "./SearchInput/SearchInput"
 import { useLocation } from "react-router-dom"
@@ -15,13 +15,33 @@ import MenuBar from "../../Styles/elements/MenuButton/MenuBar"
 const InnerHeader = () => {
     const { Directory } = useContext(AppContext)
     const location = useLocation()
+    const navRef = useRef<HTMLElement>(null)
+    const [spacerHeight, setSpacerHeight] = useState(0)
     const [MenubarHidden, SetMenuBarHidden] = useState<Boolean>(false)
 
     const [productsHidden, setProductsHidden] = useState<Boolean>(false)
     const [searchInputHidden, setsearchInputHidden] = useState<Boolean>(false)
 
+    useLayoutEffect(() => {
+        const nav = navRef.current
+        if (!nav) return
+
+        const updateHeight = () => setSpacerHeight(nav.offsetHeight)
+        updateHeight()
+
+        if (typeof ResizeObserver !== "undefined") {
+            const observer = new ResizeObserver(updateHeight)
+            observer.observe(nav)
+            return () => observer.disconnect()
+        }
+
+        window.addEventListener("resize", updateHeight)
+        return () => window.removeEventListener("resize", updateHeight)
+    }, [location.pathname, MenubarHidden, productsHidden, searchInputHidden, Directory])
+
     return (
-        <nav id="nav" className="fixed top-0 left-0 right-0 z-20 w-full bg-white shadow-md">
+        <>
+        <nav ref={navRef} id="nav" className="fixed top-0 left-0 right-0 z-20 w-full bg-white shadow-md ">
             <div
 
                 className="innerheader__content w-full"
@@ -86,6 +106,12 @@ const InnerHeader = () => {
             <SearchInput isActive={searchInputHidden} />
             <MenuBar isActive={MenubarHidden} />
         </nav>
+        <div
+            className="innerheader__spacer shrink-0"
+            style={{ height: spacerHeight }}
+            aria-hidden="true"
+        />
+        </>
     )
 }
 

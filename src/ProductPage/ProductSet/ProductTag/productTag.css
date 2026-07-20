@@ -1,0 +1,7 @@
+.ProductTag-content span::before {
+    margin-right: 12px;
+    max-width: 12px;
+    max-height: 9px;
+    content: "✓";
+    color: var(--orange-color);
+}

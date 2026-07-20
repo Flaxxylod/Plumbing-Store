@@ -4,7 +4,7 @@ import ComboBox from '../../Styles/elements/Combobox/ComboBox';
 const ShifterHead = () => {
 
     return (
-        <div className="mt-[150px]">
+        <div>
             <div className="container">
                 <div className="flex flex-col whitespace-nowrap">
 

@@ -6,7 +6,7 @@ import MenuButton from "../../Styles/elements/MenuButton/MenuButton"
 import UI_store from "../../Store/UI_Store"
 import { useState } from "react"
 const Nav = () => {
-    const [OpenSearchInput, SetOpenSearchInput] = useState<boolean>(false)
+
     const OpeningSearchInput: () => void = UI_store((state) => state.OpeningSearchInput)
     return (
         <nav id="nav" className="text-[var(--gray-color)] mx-[16px]">

@@ -12,9 +12,7 @@ const ShiftersCatalog = () => {
     const MobileFilter_IsActive: () => void = UI_Store((state) => state.Activating_Filter)
     return (
         <div className="">
-            <nav>
-                <InnerHeader />
-            </nav>
+            <InnerHeader />
             <main className="relative">
                 <ShifterHead />
                 <ShifterCatalogProducts />
