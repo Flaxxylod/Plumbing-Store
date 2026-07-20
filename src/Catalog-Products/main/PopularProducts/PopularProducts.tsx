@@ -1,4 +1,4 @@
-import "./PopularProducts.css";
+
 import "./../../../Styles/elements/Pagination/pagination.css";
 import ReactPaginate from "react-paginate";
 import PromotionalCard from "../../../CommonElements/PromotionalCard/PromotionalCard";

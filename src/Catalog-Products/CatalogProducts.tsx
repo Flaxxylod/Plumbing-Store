@@ -3,7 +3,7 @@ import InnerHeader from "../Landing/inner-header/InnerHeader";
 import Footer from "../CommonElements/footer/Footer.js";
 
 import Ourproducts from "../CommonElements/Ourproducts/Ourproducts.jsx";
-import PopularProducts from "./main/PopularProducts/PopularProducts.jsx";
+import Products from "./main/Products/Products.jsx";
 import ByProduction from "./main/ByProduction/ByProduction.jsx";
 
 const CatalogProducts = () => {
@@ -17,7 +17,7 @@ const CatalogProducts = () => {
 
                 <main >
                     <Ourproducts>Каталог товаров</Ourproducts>
-                    <PopularProducts />
+                    <Products />
                     <ByProduction />
                 </main>
 
