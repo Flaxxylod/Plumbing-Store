@@ -1,5 +1,5 @@
 
-import search from "src/assets/Common/navigation/icon/group.svg"
+import search from "@/assets/Common/navigation/icon/group.svg"
 
 interface SearchButtonProps {
     onClick: () => void
