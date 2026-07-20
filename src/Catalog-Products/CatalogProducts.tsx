@@ -1,4 +1,4 @@
-import "./CatalogProducts.css"
+
 import InnerHeader from "../Landing/inner-header/InnerHeader";
 import Footer from "../CommonElements/footer/Footer.js";
 
