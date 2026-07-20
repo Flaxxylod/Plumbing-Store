@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelect } from 'downshift';
-import './ComboBox.css';
+import './comboBox.css';
 
 
 

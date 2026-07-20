@@ -1,5 +1,5 @@
 
-import "./../../../Styles/elements/Pagination/pagination.css";
+import "./../../../Styles/elements/Pagination/Pagination.css";
 import ReactPaginate from "react-paginate";
 import PromotionalCard from "../../../CommonElements/PromotionalCard/PromotionalCard";
 import { useState } from "react";
