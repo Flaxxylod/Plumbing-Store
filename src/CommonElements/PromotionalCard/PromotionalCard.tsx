@@ -1,9 +1,9 @@
-import { data } from "autoprefixer";
+
 
 
 interface PromotionalCardProps {
     discount?: number | undefined,
-    discountPrice?: number | undefined,
+
     price: number,
     picture: string,
     title: string,
@@ -12,7 +12,7 @@ interface PromotionalCardProps {
 
 }
 
-const PromotionalCard = ({ discount, picture, title, price, discountPrice, onClick, testid }: PromotionalCardProps) => {
+const PromotionalCard = ({ discount, picture, title, price, onClick, testid }: PromotionalCardProps) => {
 
 
     return (
@@ -36,7 +36,7 @@ const PromotionalCard = ({ discount, picture, title, price, discountPrice, onCli
                         <strong className="font-['PT_Sans']" style={{ fontSize: "20px" }}>
                             {price + "₽"}
                         </strong>
-                        {discountPrice && <p className="text-[1rem] leading-[1] text-[#A5A5A5] line-through">{discountPrice + "₽"}</p>}
+                        {discount && <p className="text-[1rem] leading-[1] text-[#A5A5A5] line-through">{price - (price * (discount / 100)) + "₽"}</p>}
                     </div>
                 </div>
 

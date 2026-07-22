@@ -27,17 +27,17 @@ const ShifterCatalogProducts = () => {
     const [shiftersDatas, setShiftersDatas] = useState<ShifterDatasType[]>([])
     const { Category } = useParams()
     console.log(`http://localhost:8081/api/${Category}/get`)
-
-
+    //https://backendplubmingstore.onrender.com/api/${Category}/get // настоящий api
+    //http://localhost:8081/api/${Category}/get - для теста запросов
     useEffect(() => {
         const ShiftersData = async (): Promise<void> => {
             try {
-                const shiftersData = await axios.get(`http://localhost:8081/api/${Category}/get`);
+                const shiftersData = await axios.get(`https://backendplubmingstore.onrender.com/api/${Category}/get`);
                 console.log(shiftersData)
                 // Добавляем полный URL к каждой картинке
                 const dataWithImageUrls = shiftersData.data.map(item => ({
                     ...item,
-                    imageUrl: `http://localhost:8081/img/${item.image_name}`
+                    imageUrl: `https://backendplubmingstore.onrender.com/img/${item.image_name}`
                 }));
 
 
@@ -97,10 +97,9 @@ const ShifterCatalogProducts = () => {
                             {currentItems.map((item, index) => (
                                 <PromotionalCard
                                     key={`${item.id || item.name}-${index}`} // лучше использовать id
-                                    picture={`http://localhost:8081/img/${item.image_name}`}
+                                    picture={`https://backendplubmingstore.onrender.com/img/${item.image_name}`}
                                     title={item.title}
                                     price={item.price}
-                                    discountPrice={item.discount_price}
                                     discount={item.discount_percents}
                                     onClick={() => handleProductClick(item)}
                                     testid={"PromotionalCard"}

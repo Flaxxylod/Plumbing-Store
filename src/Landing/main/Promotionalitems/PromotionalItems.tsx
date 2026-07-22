@@ -9,9 +9,9 @@ import { FC, useEffect, useState } from "react";
 interface PromotionalItem {
     title: string,
     image_name: string,
-    price: string,
-    discount_price?: string,
-    discount_percents?: string
+    price: number,
+
+    discount_percents?: number
 }
 
 const PromotionalItems = () => {
@@ -20,7 +20,7 @@ const PromotionalItems = () => {
 
     const GetPromotionalProductsData = async (): Promise<void> => {
         try {
-            const PostPromProducts = await axios.get("http://localhost:8081/api/Shifters/get");
+            const PostPromProducts = await axios.get("https://backendplubmingstore.onrender.com/api/Shifters/get");
             SetPromProductsData(PostPromProducts.data)
             SetDataLoaded(true)
         }
@@ -44,9 +44,8 @@ const PromotionalItems = () => {
                             {PromProductsData.slice(0, 4).map((item) =>
                                 <PromotionalCard
                                     title={item.title}
-                                    picture={`http://localhost:8081/img/${item.image_name}`}
+                                    picture={`https://backendplubmingstore.onrender.com/img/${item.image_name}`}
                                     price={item.price}
-                                    discountPrice={item.discount_price}
                                     discount={item.discount_percents}
                                 />
                             )}

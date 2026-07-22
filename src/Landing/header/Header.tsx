@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { heroData } from "./HeroData";
-import "./header.css";
+import "./Header.css";
 import UI_Store from "../../Store/UI_Store"
 import { useEffect, useState } from "react";
 import SearchInput from "../inner-header/SearchInput/SearchInput";
@@ -96,7 +96,7 @@ const Header = () => {
                                         className={`HeroImg ${state} object-cover`}
 
                                         src={heroData[currentIndex].picture}
-
+                                        
 
                                     />
                                 )}

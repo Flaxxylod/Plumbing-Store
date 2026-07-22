@@ -23,6 +23,9 @@ export default defineConfig({
     sourcemap: true
   },
   server: {
+    fs: {
+      strict: true, // заставляет проверять пути строго
+    },
     port: 3000,
     open: true,
     host: true,
@@ -32,7 +35,7 @@ export default defineConfig({
         changeOrigin: true,
         secure: false
       }
-    }
+    },
   }
 
 
