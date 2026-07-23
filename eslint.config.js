@@ -2,11 +2,12 @@ import js from '@eslint/js'
 import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
+import importPlugin from 'eslint-plugin-import'
 
 export default [
   { ignores: ['dist'] },
   {
-    files: ['**/*.{js,jsx}'],
+    files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
@@ -19,6 +20,15 @@ export default [
     plugins: {
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
+      'import': importPlugin,
+    },
+    settings: {
+      'import/resolver': {
+        node: {
+          extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.svg', '.png', '.jpg'],
+        },
+      },
+      'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
     },
     rules: {
       ...js.configs.recommended.rules,
@@ -28,6 +38,12 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
+      // === КЛЮЧЕВОЕ ПРАВИЛО ===
+      // Включаем проверку регистра
+      'import/no-unresolved': ['error', {
+        caseSensitive: true,  // ← ЭТО ВАЖНО!
+        ignore: ['^react$', '^react-dom$', '^react-router-dom$', '^axios$', '^react-paginate$'],
+      }],
     },
   },
 ]

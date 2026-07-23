@@ -12,14 +12,11 @@
 }
 
 .items-list li {
-
     padding: 10px;
     border: 1px solid #ddd;
     margin-bottom: 5px;
     border-radius: 4px;
 }
-
-.items-list li a {}
 
 /* Стили пагинации */
 .pagination {
@@ -29,10 +26,13 @@
     justify-content: center;
     gap: 8px;
     margin-top: 32px;
-
 }
 
 .pagination li {
+    display: flex;
+    /* ← Делаем li флексом */
+    align-items: center;
+    justify-content: center;
     background-color: #F2F2F2;
     cursor: pointer;
     padding: 12px 14px;
@@ -40,36 +40,42 @@
 }
 
 .pagination li a {
+    display: flex;
+    /* ← Растягиваем ссылку */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
     color: #656B72;
     font-weight: bold;
+    text-decoration: none;
 }
 
-.pagination li.next a{
+.pagination li.next a {
     color: #656B72;
 }
 
-.pagination li.next:hover a{
+.pagination li.next:hover a {
     color: var(--black-color);
 }
 
-.pagination li.previous a{
+.pagination li.previous a {
     color: #656B72;
 }
-.pagination li.previous:hover a{
+
+.pagination li.previous:hover a {
     color: var(--black-color);
 }
 
 .pagination .active {
     background-color: #FFF7F2;
-    
-    
     border: solid 2px var(--orange-color);
 }
 
-.pagination .active a{
+.pagination .active a {
     color: var(--black-color);
 }
+
 .pagination .disabled {
     display: none;
-
 }

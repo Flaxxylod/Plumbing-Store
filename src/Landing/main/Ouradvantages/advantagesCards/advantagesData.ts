@@ -24,4 +24,4 @@ export const AdvantagesCardData: AdvantagesCard[] = [
         subheader: "Безопасная оплата",
         text: "Банковской картой или наличными при получении. ",
     },
-]
+];

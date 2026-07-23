@@ -1,3 +1,8 @@
+.innerheader__spacer {
+    width: 100%;
+    pointer-events: none;
+}
+
 .innerheader__content {
     transition: 0.5s;
     padding: 0.937rem 0rem 0.875rem;

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { heroData } from "./HeroData";
-import "./header.css";
+import "./Header.css";
 import UI_Store from "../../Store/UI_Store"
 import { useEffect, useState } from "react";
 import SearchInput from "../inner-header/SearchInput/SearchInput";
@@ -35,7 +35,7 @@ const Header = () => {
 
                 <SearchInput isActive={OpenSearchInput} />
 
-                <section className=" flex justify-between pt-[188px] ">
+                <section className=" flex justify-between ">
                     <div className=" w-full h-full  lg:min-w-[592px] ">
                         <div className="lg:max-w-[592px] md:max-w-[528px] max-md:max-w-[528px]">
                             <h1 className=" text-[var(--white-color)] ">
@@ -96,7 +96,7 @@ const Header = () => {
                                         className={`HeroImg ${state} object-cover`}
 
                                         src={heroData[currentIndex].picture}
-
+                                        
 
                                     />
                                 )}

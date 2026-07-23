@@ -17,7 +17,8 @@
         "isolatedModules": true,
         "skipLibCheck": true,
         "resolveJsonModule": true,
-        "strict": false
+        "strict": false,
+        "forceConsistentCasingInFileNames": true
     },
     "include": [
         "src/**/*", // 👈 Этого достаточно! Включит все файлы в src

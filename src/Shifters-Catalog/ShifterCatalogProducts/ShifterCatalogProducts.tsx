@@ -6,7 +6,7 @@ import PromotionalCard from "../../CommonElements/PromotionalCard/PromotionalCar
 import Modal from "../../CommonElements/Modal/Modal";
 import CardProduct from "../../CommonElements/CardProduct/CardProduct";
 import axios from "axios";
-
+import { data, useParams } from "react-router-dom";
 
 interface ShifterDatasType {
     id: number,
@@ -25,27 +25,30 @@ interface ShifterDatasType {
 
 const ShifterCatalogProducts = () => {
     const [shiftersDatas, setShiftersDatas] = useState<ShifterDatasType[]>([])
-
-    const ShiftersData = async (): Promise<void> => {
-        try {
-            const shiftersData = await axios.get("http://localhost:8081/api/Shifters/get");
-
-            // Добавляем полный URL к каждой картинке
-            const dataWithImageUrls = shiftersData.data.map(item => ({
-                ...item,
-                imageUrl: `http://localhost:8081/img/${item.image_name}`
-            }));
-
-
-            setShiftersDatas(dataWithImageUrls);
-        } catch (error) {
-            console.error("Ошибка загрузки данных:", error);
-        }
-    }
-
+    const { Category } = useParams()
+    console.log(`http://localhost:8081/api/${Category}/get`)
+    //https://backendplubmingstore.onrender.com/api/${Category}/get // настоящий api
+    //http://localhost:8081/api/${Category}/get - для теста запросов
     useEffect(() => {
+        const ShiftersData = async (): Promise<void> => {
+            try {
+                const shiftersData = await axios.get(`https://backendplubmingstore.onrender.com/api/${Category}/get`);
+                console.log(shiftersData)
+                // Добавляем полный URL к каждой картинке
+                const dataWithImageUrls = shiftersData.data.map(item => ({
+                    ...item,
+                    imageUrl: `https://backendplubmingstore.onrender.com/img/${item.image_name}`
+                }));
+
+
+                setShiftersDatas(dataWithImageUrls);
+            } catch (error) {
+                console.error("Ошибка загрузки данных:", error);
+            }
+        }
+
         ShiftersData()
-    }, [])
+    }, [Category])
 
     // Настройки пагинации
     const itemsPerPage: number = 9;
@@ -88,16 +91,15 @@ const ShifterCatalogProducts = () => {
             <div className="container">
                 <div className="flex max-lg:justify-center gap-x-[42px]">
                     <ShiftersFilter />
-                    <div className="shifter__catalog__wrap">
+                    <div className="min-h-[1170px]">
                         {/* Сетка товаров (4 в строку) */}
                         <div className="grid lg:grid-cols-[repeat(3,minmax(275px,1fr))] md:grid-cols-2">
                             {currentItems.map((item, index) => (
                                 <PromotionalCard
                                     key={`${item.id || item.name}-${index}`} // лучше использовать id
-                                    picture={`http://localhost:8081/img/${item.image_name}`}
+                                    picture={`https://backendplubmingstore.onrender.com/img/${item.image_name}`}
                                     title={item.title}
                                     price={item.price}
-                                    discountPrice={item.discount_price}
                                     discount={item.discount_percents}
                                     onClick={() => handleProductClick(item)}
                                     testid={"PromotionalCard"}

@@ -3,6 +3,7 @@ import { useAppContext } from './Context'; // Используем кастом�
 import Landing from './Landing/Landing';
 import CatalogProducts from './Catalog-Products/CatalogProducts';
 import ShiftersCatalog from './Shifters-Catalog/ShiftersCatalog';
+import ProductPage from './ProductPage/ProductPage';
 import { useEffect } from 'react';
 
 export default function RouterWrapper() {
@@ -11,7 +12,7 @@ export default function RouterWrapper() {
 
     useEffect(() => {
         switch (location.pathname) {
-            case "/catalog/Shifters":
+            case "/catalog/Category":
                 setDirectory(["Главная", "Товары", "Смесители"]);
                 break;
             case "/catalog":
@@ -26,7 +27,8 @@ export default function RouterWrapper() {
         <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/catalog" element={<CatalogProducts />} />
-            <Route path="/catalog/:Shifters" element={<ShiftersCatalog />} />
+            <Route path="/catalog/:Category" element={<ShiftersCatalog />} />
+            <Route path="/catalog/:Category/product" element={<ProductPage />} />
         </Routes>
     );
 }

@@ -1,9 +1,9 @@
-import { data } from "autoprefixer";
+
 
 
 interface PromotionalCardProps {
     discount?: number | undefined,
-    discountPrice?: number | undefined,
+
     price: number,
     picture: string,
     title: string,
@@ -12,12 +12,12 @@ interface PromotionalCardProps {
 
 }
 
-const PromotionalCard = ({ discount, picture, title, price, discountPrice, onClick, testid }: PromotionalCardProps) => {
+const PromotionalCard = ({ discount, picture, title, price, onClick, testid }: PromotionalCardProps) => {
 
 
     return (
 
-        <article data-testid={testid} className="relative flex  cursor-pointer lg:min-w-[262px] lg:max-w-[300px] lg:min-h-[354px] max-md:max-w-[360px]" onClick={onClick}>
+        <article data-testid={testid} className="relative flex  cursor-pointer min-w-[262px] max-w-[300px] lg:min-h-[354px] max-md:max-w-[360px]" onClick={onClick}>
             {discount && <div className="absolute max-md:hidden right-[12px] top-[12px] rounded-xs  py-[8px] px-[11px] bg-[var(--orange-color)]"><span className="text-[var(--white-color)]">{discount + "%"}</span></div>}
             <div className="py-[24px] px-[20px] flex md:flex-col flex-grow-[1] max-md:items-center border border-solid border-[#ECECEC]">
 
@@ -36,7 +36,7 @@ const PromotionalCard = ({ discount, picture, title, price, discountPrice, onCli
                         <strong className="font-['PT_Sans']" style={{ fontSize: "20px" }}>
                             {price + "₽"}
                         </strong>
-                        {discountPrice && <p className="text-[1rem] leading-[1] text-[#A5A5A5] line-through">{discountPrice + "₽"}</p>}
+                        {discount && <p className="text-[1rem] leading-[1] text-[#A5A5A5] line-through">{price - (price * (discount / 100)) + "₽"}</p>}
                     </div>
                 </div>
 
