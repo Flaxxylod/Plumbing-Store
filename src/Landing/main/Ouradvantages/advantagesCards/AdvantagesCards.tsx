@@ -29,7 +29,7 @@ const AdvantagesCards = ({ type }: AdvantagesCardDataType) => {
             default:
                 return (
                     <div className="flex justify-center gap-x-[119px] lg:items-start max-md:flex-col">
-                        <div key={obj.id} className="mt-[54px] flex flex-col w-full">
+                        <div key={obj.id} className="mt-[54px] flex flex-col  w-full">
 
                             {/* ДЕСКТОП */}
                             <div className="hidden lg:flex flex-col items-center w-full">
@@ -39,9 +39,9 @@ const AdvantagesCards = ({ type }: AdvantagesCardDataType) => {
                             </div>
 
                             {/* МОБИЛКА */}
-                            <div className="lg:hidden flex flex-row gap-[14px] items-start w-full">
+                            <div className="lg:hidden flex flex-row gap-[14px]  w-full">
                                 <img className="w-[48px] max-h-[90px] flex-shrink-0" src={obj.picture} alt="" />
-                                <div className="flex flex-col flex-1">
+                                <div className="flex flex-col flex-1 items-start">
                                     {title}
                                     <div className="mt-3 max-w-[260px]">{description}</div>
                                 </div>
@@ -58,7 +58,7 @@ const AdvantagesCards = ({ type }: AdvantagesCardDataType) => {
     });
 
     return (
-        <div className={`${type === "column" ? "flex flex-col gap-y-[32px]" : ""}`}>
+        <div className={`${type === "column" ? "flex flex-col gap-y-[32px]" : "flex lg:flex-row flex-col lg:justify-evenly justify-center items-center"}`}>
             <>{Cards}</>
         </div>
 
