@@ -7,7 +7,7 @@ import CardProduct from "../../CommonElements/CardProduct/CardProduct";
 import { useParams } from "react-router-dom";
 import { API } from "../../api.config";
 import useModal from "../../hooks/useModal";
-import useGetData from "./useGetData";
+import useGetData from "../../hooks/useGetData";
 import usePagination from "../../hooks/usePagination";
 
 interface product {

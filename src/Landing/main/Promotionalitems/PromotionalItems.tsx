@@ -2,10 +2,10 @@
 import PromotionalCard from "../../../CommonElements/PromotionalCard/PromotionalCard";
 import Carosuel from "../../../CommonElements/Carosuel/Carosuel";
 import axios from "axios";
-import { useEffect, useState } from "react";
+
 import { API } from "../../../api.config";
-
-
+import useGetData from "../../../hooks/useGetData";
+import usePromotionalItems from "./usePromotionalItems";
 interface PromotionalItem {
     id: number,
     title: string,
@@ -16,33 +16,18 @@ interface PromotionalItem {
 }
 
 const PromotionalItems = () => {
-    const [PromProductsData, SetPromProductsData] = useState<PromotionalItem[]>([])
-    const [DataLoaded, SetDataLoaded] = useState<boolean>(false)
-    const ProductURL = API.Get_ProductURL("Shifters")
-    const GetPromotionalProductsData = async (): Promise<void> => {
-        try {
-            const PostPromProducts = await axios.get(ProductURL);
-            SetPromProductsData(PostPromProducts.data)
-            SetDataLoaded(true)
-        }
-        catch (error) {
-            console.log("Ошибка:", error)
-            SetDataLoaded(false)
-        }
-    }
 
-    useEffect(() => {
-        GetPromotionalProductsData()
-    }, [])
+    const data = useGetData<PromotionalItem>(API.Get_ProductURL("Shifters")).data || []
+    const promo = usePromotionalItems()
 
-    if (DataLoaded) {
+    if (promo.DataLoaded) {
         return (
             <div className="mt-[80px]">
                 <section className="container max-md:!w-[1180px]">
                     <h2>Акционные товары</h2>
                     <div className="mt-[20px]">
                         <Carosuel>
-                            {PromProductsData.slice(0, 4).map((item) =>
+                            {data.slice(0, 4).map((item) =>
                                 <PromotionalCard
                                     title={item.title}
                                     picture={API.Get_ImageURL(item.id)}

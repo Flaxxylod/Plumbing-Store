@@ -1,28 +1,14 @@
-import { useState, useEffect } from "react";
+
 import { Link } from "react-router-dom";
 import UserButton from "../userbutton/UserButton";
-
+import useMenuBar from "./useMenuBar";
 interface MenuBarButton {
     isActive?: Boolean
 }
 
-const MenuBar = ({ isActive }) => {
+const MenuBar = ({ isActive }: MenuBarButton) => {
+    const MenuBar = useMenuBar(isActive)
 
-    const [OpenCatalog, SetOpenCatalog] = useState<Boolean>(false)
-
-    useEffect(() => {
-
-        if (isActive) {
-            document.body.style.overflow = 'hidden';
-        }
-        else {
-            document.body.style.overflow = 'unset';
-        }
-
-        return () => {
-            document.body.style.overflow = 'unset';
-        }
-    }, [isActive])
 
 
 
@@ -32,8 +18,8 @@ const MenuBar = ({ isActive }) => {
                 <ul className="flex flex-col gap-y-[20px] text-[var(--white-gray-color)] max-lg:text-[2rem]">
                     <li>О компании</li>
                     <li>О продукции</li>
-                    <span onClick={() => SetOpenCatalog(!OpenCatalog)} className="ih__catalogproducts cursor-pointer">Каталог товаров</span>
-                    {OpenCatalog ? (
+                    <span onClick={() => MenuBar.SetOpenCatalog(!MenuBar.OpenCatalog)} className="ih__catalogproducts cursor-pointer">Каталог товаров</span>
+                    {MenuBar.OpenCatalog ? (
                         <>
                             <ul className="[&>li]:text-[1rem]">
                                 <Link to={"/catalog/Shifters"}><li>Смесители</li></Link>
