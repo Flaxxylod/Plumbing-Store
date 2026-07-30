@@ -10,7 +10,6 @@ type CardProductProps = {
         imageUrl: string;
         title: string;
         price: number;
-        discount_price?: number;
         discount_percents?: number;
         id?: number;
         name?: string;
@@ -24,13 +23,7 @@ const CardProduct = ({ product, onClose, testid }: CardProductProps) => {
     // Если нет продукта, не рендерим компонент
     if (!product) return null;
 
-    const {
-        imageUrl: picture,
-        title: name,
-        price,
-        discount_price: discountprice,
-        discount_percents: discount
-    } = product;
+
 
 
     return (
@@ -43,18 +36,18 @@ const CardProduct = ({ product, onClose, testid }: CardProductProps) => {
                 <div className="flex mt-[5px] p-[0px_11px_19px_0px] gap-x-[32px]">
                     <div className="flex gap-x-[20px]">
                         <div className="cardproduct__imagesblock">
-                            <img src={picture} alt="" />
+                            <img src={product.imageUrl} alt="" />
                             <img src={blueshift} alt="" />
                         </div>
 
                         <div className="cardproduct__heroblock">
-                            <img src={picture} alt="" />
+                            <img src={product.imageUrl} alt="" />
                         </div>
                     </div>
                     <div className="max-w-[378px]">
                         <section className="cardproduct__descriptionblock">
                             <h4>
-                                {name}
+                                {product.name}
                             </h4>
 
                             <div className="mt-[16px] max-w-[300px]">
@@ -92,8 +85,8 @@ const CardProduct = ({ product, onClose, testid }: CardProductProps) => {
 
                 <div className="flex justify-end gap-x-[68px] p-[24px_0px_0px_0px] bg-[#FCFCFC] border-t-[1px] border-t-[#ECECEC]">
                     <div className="flex  items-center">
-                        <strong className="text-[PT_Sans]! leading-[32px] text-[2rem]!">{price + "₽"}</strong>
-                        {discount && <span className="line-through text-[#A5A5A5] ml-[1rem]">{discountprice + "₽"}</span>}
+                        <strong className="text-[PT_Sans]! leading-[32px] text-[2rem]!">{product.price + "₽"}</strong>
+                        {product.discount_percents && <span className="line-through text-[#A5A5A5] ml-[1rem]">{product.price - (product.price * (product.discount_percents / 100))}</span>}
                     </div>
                     <Button>Добавить в корзину</Button>
                 </div>

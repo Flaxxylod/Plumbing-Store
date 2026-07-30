@@ -1,90 +1,31 @@
 
 import ShiftersFilter from "../ShiftersFilter/ShiftersFilter";
 import ReactPaginate from "react-paginate";
-import { useEffect, useState, useMemo } from "react";
 import PromotionalCard from "../../CommonElements/PromotionalCard/PromotionalCard";
 import Modal from "../../CommonElements/Modal/Modal";
 import CardProduct from "../../CommonElements/CardProduct/CardProduct";
-import axios from "axios";
-import { data, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { API } from "../../api.config";
+import useModal from "../../hooks/useModal";
+import useGetData from "./useGetData";
+import usePagination from "../../hooks/usePagination";
 
-interface ShifterDatasType {
+interface product {
     id: number,
     title: string,
-    image_name: string,
-    imageUrl: string,
     name: string,
     price: number,
-    discount_price?: number,
     discount_percents?: number,
-    onClick?: () => void,
-    testid?: string
+    imageUrl: string
 }
 
-
-
 const ShifterCatalogProducts = () => {
-    const [shiftersDatas, setShiftersDatas] = useState<ShifterDatasType[]>([])
     const { Category } = useParams()
-    console.log(`http://localhost:8081/api/${Category}/get`)
-    //https://backendplubmingstore.onrender.com/api/${Category}/get // настоящий api
-    //http://localhost:8081/api/${Category}/get - для теста запросов
-    useEffect(() => {
-        const ShiftersData = async (): Promise<void> => {
-            try {
-                const shiftersData = await axios.get(`https://backendplubmingstore.onrender.com/api/${Category}/get`);
-                console.log(shiftersData)
-                // Добавляем полный URL к каждой картинке
-                const dataWithImageUrls = shiftersData.data.map(item => ({
-                    ...item,
-                    imageUrl: `https://backendplubmingstore.onrender.com/img/${item.image_name}`
-                }));
 
+    const modal = useModal<product>()
+    const ShifterData = useGetData<product>(API.Get_ProductURL(Category)).data || [];
 
-                setShiftersDatas(dataWithImageUrls);
-            } catch (error) {
-                console.error("Ошибка загрузки данных:", error);
-            }
-        }
-
-        ShiftersData()
-    }, [Category])
-
-    // Настройки пагинации
-    const itemsPerPage: number = 9;
-    const [currentPage, setCurrentPage] = useState<number>(0);
-
-    // Вычисляем элементы для текущей страницы
-    const offset: number = currentPage * itemsPerPage;
-    const currentItems = useMemo(() => {
-
-        return shiftersDatas.slice(offset, offset + itemsPerPage);
-    }, [shiftersDatas, offset, currentPage])
-
-
-    const pageCount = useMemo(() => {
-        return Math.ceil(shiftersDatas.length / itemsPerPage);
-
-    }, [shiftersDatas.length, itemsPerPage])
-
-    const handlePageClick = ({ selected }): void => {
-        setCurrentPage(selected);
-    };
-
-    // Настройки модального окна
-    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-    const [selectedProduct, setSelectedProduct] = useState<ShifterDatasType | null>(null);
-
-    const handleProductClick = (product: ShifterDatasType): void => {
-        setSelectedProduct(product);
-        setIsModalOpen(true);
-
-    };
-
-    const handleCloseModal = (): void => {
-        setIsModalOpen(false);
-        setSelectedProduct(null);
-    };
+    const paginator = usePagination(ShifterData, 9);
 
     return (
         <div className="flex mt-[32px]">
@@ -94,40 +35,45 @@ const ShifterCatalogProducts = () => {
                     <div className="min-h-[1170px]">
                         {/* Сетка товаров (4 в строку) */}
                         <div className="grid lg:grid-cols-[repeat(3,minmax(275px,1fr))] md:grid-cols-2">
-                            {currentItems.map((item, index) => (
+                            {paginator.currentItems.map((item) => (
                                 <PromotionalCard
-                                    key={`${item.id || item.name}-${index}`} // лучше использовать id
-                                    picture={`https://backendplubmingstore.onrender.com/img/${item.image_name}`}
+                                    key={item.id}
+                                    picture={API.Get_ImageURL(item.id)}
                                     title={item.title}
                                     price={item.price}
                                     discount={item.discount_percents}
-                                    onClick={() => handleProductClick(item)}
+                                    onClick={() => modal.open({
+                                        ...item,
+                                        imageUrl: API.Get_ImageURL(item.id)
+                                    })
+
+                                    }
                                     testid={"PromotionalCard"}
                                 />
                             ))}
                         </div>
 
                         {/* Пагинация (только если страниц больше 1) */}
-                        {pageCount > 1 && (
+                        {paginator.pageCount > 1 && (
                             <ReactPaginate
-                                pageCount={pageCount}
+                                pageCount={paginator.pageCount}
                                 pageRangeDisplayed={3}
                                 marginPagesDisplayed={1}
-                                onPageChange={handlePageClick}
+                                onPageChange={paginator.PageClick}
                                 containerClassName="pagination"
                                 activeClassName="active"
                                 previousLabel="← Назад"
                                 nextLabel="Вперед →"
                                 breakLabel="..."
-                                forcePage={currentPage}
+                                forcePage={paginator.currentPage}
                             />
                         )}
                     </div>
-                    {isModalOpen && selectedProduct && (
+                    {modal.isOpen && (
                         <Modal testid={"Modal"}>
-                            <CardProduct {...selectedProduct}
-                                product={selectedProduct}
-                                onClose={handleCloseModal}
+                            <CardProduct
+                                product={modal.select}
+                                onClose={modal.close}
                                 testid={"CardProduct"}
                             />
                         </Modal>
