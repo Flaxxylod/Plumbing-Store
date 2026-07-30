@@ -2,11 +2,12 @@
 import PromotionalCard from "../../../CommonElements/PromotionalCard/PromotionalCard";
 import Carosuel from "../../../CommonElements/Carosuel/Carosuel";
 import axios from "axios";
-import { FC, useEffect, useState } from "react";
-
+import { useEffect, useState } from "react";
+import { API } from "../../../api.config";
 
 
 interface PromotionalItem {
+    id: number,
     title: string,
     image_name: string,
     price: number,
@@ -17,10 +18,10 @@ interface PromotionalItem {
 const PromotionalItems = () => {
     const [PromProductsData, SetPromProductsData] = useState<PromotionalItem[]>([])
     const [DataLoaded, SetDataLoaded] = useState<boolean>(false)
-
+    const ProductURL = API.Get_ProductURL("Shifters")
     const GetPromotionalProductsData = async (): Promise<void> => {
         try {
-            const PostPromProducts = await axios.get("https://backendplubmingstore.onrender.com/api/Shifters/get");
+            const PostPromProducts = await axios.get(ProductURL);
             SetPromProductsData(PostPromProducts.data)
             SetDataLoaded(true)
         }
@@ -44,7 +45,7 @@ const PromotionalItems = () => {
                             {PromProductsData.slice(0, 4).map((item) =>
                                 <PromotionalCard
                                     title={item.title}
-                                    picture={`https://backendplubmingstore.onrender.com/img/${item.image_name}`}
+                                    picture={API.Get_ImageURL(item.id)}
                                     price={item.price}
                                     discount={item.discount_percents}
                                 />
