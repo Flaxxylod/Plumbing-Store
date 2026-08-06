@@ -4,7 +4,7 @@ import blueshift from "./../../assets/Common/Product-Card/BlueprintsShifters.png
 import chrome from "./../../assets/Common/filter/shifters/Ellipse-1.svg"
 import closer from "./../../assets/Common/Product-Card/Vector.svg"
 import Button from "../../Styles/elements/Button/Button"
-
+import { Link } from "react-router-dom"
 type CardProductProps = {
     product?: {
         imageUrl: string;
@@ -15,11 +15,12 @@ type CardProductProps = {
         name?: string;
     };
     onClose: () => void;
+    Category: string
     testid?: string;
 }
 
 
-const CardProduct = ({ product, onClose, testid }: CardProductProps) => {
+const CardProduct = ({ product, onClose, testid, Category }: CardProductProps) => {
     // Если нет продукта, не рендерим компонент
     if (!product) return null;
 
@@ -73,8 +74,10 @@ const CardProduct = ({ product, onClose, testid }: CardProductProps) => {
                                         <span className="info-value">5 лет</span>
                                     </li>
                                 </ul>
-                                <a href="#!" style={{ fontSize: "16px", color: "#FE5B00", marginTop: "16px" }}>Комлектация, преимущества и доставка →
-                                </a>
+
+                                <Link to={`/catalog/${Category}/${product.id}`}>
+                                    <span className="text-[1rem] text-[#FE5B00] mt-[16px]">Комлектация, преимущества и доставка →</span>
+                                </Link>
                             </div>
                         </section>
                     </div>
@@ -88,7 +91,7 @@ const CardProduct = ({ product, onClose, testid }: CardProductProps) => {
                         <strong className="text-[PT_Sans]! leading-[32px] text-[2rem]!">{product.price + "₽"}</strong>
                         {product.discount_percents && <span className="line-through text-[#A5A5A5] ml-[1rem]">{product.price - (product.price * (product.discount_percents / 100))}</span>}
                     </div>
-                    <Button>Добавить в корзину</Button>
+                    <Button >Добавить в корзину</Button>
                 </div>
 
             </div>

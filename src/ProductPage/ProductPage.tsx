@@ -1,22 +1,32 @@
 import InnerHeader from "../Landing/inner-header/InnerHeader";
 import Footer from "../CommonElements/footer/Footer";
 import ProductCard_Info from "./ProductInfo/ProductCard_Info";
-import picture from "../assets/Common/Product-Card/image.png"
 import ProductSet from "./ProductSet/ProductSet";
 import ProductDescription from "./ProductInfo/ProductDescription/ProductDescription";
 import AdvantagesList from "./ProductAdvantages/AdvantagesList";
 import ProductSpecifications from "./ProductSpecification/ProductSpecifications";
 import EndBlock from "../Landing/main/Endblock/EndBlock";
 import Garanty from "../components/Garanty";
+import useProductPage from "./useProductPage";
+import { API } from "../api.config";
+
 const ProductPage = () => {
+    const product = useProductPage()
+    if (product.isLoading) return <div>Загрузка</div>
+
+    if (!product.products) return <div>Товар не найден</div>
+
+    if (!product.Category || !product.ProductId) {
+        return <div>Товар не найден</div>;
+    }
     return (
         <section>
             <InnerHeader />
 
             <div className="display flex flex-col ">
                 <header className="flex! lg:max-w-[1200px] w-full justify-between container">
-                    <img className="w-[480px]" src={picture} alt="" />
-                    <ProductCard_Info />
+                    <img className="w-[480px]" src={API.Get_ImageURL(product.data.id)} crossOrigin="anonymous" alt="" />
+                    <ProductCard_Info product={product.productProp} />
                 </header>
 
                 <main className="">
@@ -55,8 +65,11 @@ const ProductPage = () => {
 
             <Footer />
         </section >
-
     );
+
+
+
+
 }
 
 export default ProductPage;

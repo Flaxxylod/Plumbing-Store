@@ -7,25 +7,21 @@ import CardProduct from "../../CommonElements/CardProduct/CardProduct";
 import { useParams } from "react-router-dom";
 import { API } from "../../api.config";
 import useModal from "../../hooks/useModal";
-import useGetData from "../../hooks/useGetData";
 import usePagination from "../../hooks/usePagination";
+import useCacheData from "../../hooks/useCacheData";
+import { Product } from "../../types/Product";
 
-interface product {
-    id: number,
-    title: string,
-    name: string,
-    price: number,
-    discount_percents?: number,
-    imageUrl: string
-}
+
 
 const ShifterCatalogProducts = () => {
     const { Category } = useParams()
+    const modal = useModal<Product>()
 
-    const modal = useModal<product>()
-    const ShifterData = useGetData<product>(API.Get_ProductURL(Category)).data || [];
+    const {
+        data: products,
+    } = useCacheData<Product>(API.Get_ProductURL(Category));
 
-    const paginator = usePagination(ShifterData, 9);
+    const paginator = usePagination(products || [], 9);
 
     return (
         <div className="flex mt-[32px]">
@@ -75,6 +71,7 @@ const ShifterCatalogProducts = () => {
                                 product={modal.select}
                                 onClose={modal.close}
                                 testid={"CardProduct"}
+                                Category={Category}
                             />
                         </Modal>
                     )}

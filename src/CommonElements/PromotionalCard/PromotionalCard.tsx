@@ -1,9 +1,5 @@
-
-
-
 interface PromotionalCardProps {
     discount?: number | undefined,
-
     price: number,
     picture: string,
     title: string,

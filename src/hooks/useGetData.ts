@@ -1,46 +1,32 @@
-
 import { useEffect, useState } from "react";
-
 import axios from "axios";
-
-
 const useGetData = <T,>(URL: string) => {
-    const [loading, setLoading] = useState<boolean>(false)
-    const [error, setError] = useState<object | null>(null)
-    const [data, setData] = useState<T[] | null>(null)
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [data, setData] = useState<T[] | null>(null);
 
-    useEffect(() => {
-        const GetData = async (): Promise<void> => {
-            try {
-                setLoading(true)
+    const GetData = async () => {
+        const abortController = new AbortController();
 
-                const response = await axios.get(URL);
-
-                const URLData = response.data.map((item: T) => ({
-                    ...item,
-
-                }));
-                console.log(URLData)
-                setData(URLData);
-
-
-
-
-
-            } catch (error) {
-                console.error("Ошибка загрузки данных:", error);
-                setError(error)
-                setLoading(false)
+        try {
+            setLoading(true);
+            const response = await axios.get(URL, {
+                signal: abortController.signal,
+            });
+            setData(response.data);
+        } catch (error) {
+            if (error.name !== 'AbortError') {
+                setError(error);
             }
-
-            finally {
-                setLoading(false)
-            }
+        } finally {
+            setLoading(false);
         }
 
-        GetData()
-    }, [])
-    return ({ data, loading, error });
-}
 
-export default useGetData;
+        return abortController;
+    };
+
+    return { data, loading, error, GetData };
+};
+
+export default useGetData

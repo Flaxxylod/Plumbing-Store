@@ -1,11 +1,9 @@
 
 import PromotionalCard from "../../../CommonElements/PromotionalCard/PromotionalCard";
 import Carosuel from "../../../CommonElements/Carosuel/Carosuel";
-import axios from "axios";
-
 import { API } from "../../../api.config";
 import useGetData from "../../../hooks/useGetData";
-import usePromotionalItems from "./usePromotionalItems";
+
 interface PromotionalItem {
     id: number,
     title: string,
@@ -18,9 +16,9 @@ interface PromotionalItem {
 const PromotionalItems = () => {
 
     const data = useGetData<PromotionalItem>(API.Get_ProductURL("Shifters")).data || []
-    const promo = usePromotionalItems()
 
-    if (promo.DataLoaded) {
+
+    if (data) {
         return (
             <div className="mt-[80px]">
                 <section className="container max-md:!w-[1180px]">
